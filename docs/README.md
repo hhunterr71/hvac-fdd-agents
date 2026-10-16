@@ -11,6 +11,6 @@ Also here:
 | | |
 |---|---|
 | [glossary.md](glossary.md) | The project's terms (Unit, Incident, Work Order, ...) and the words to avoid |
-| [decisions/](decisions/) | Why things are the way they are, one decision per file (ADR-0001 to ADR-0008) |
+| [decisions/](decisions/) | Why things are the way they are, one decision per file (ADR-0001 to ADR-0009) |
 | [results/](results/) | Measured results per phase, with how to reproduce them |
 | [history/proposal.md](history/proposal.md) | The original plan, kept for context |

@@ -24,6 +24,8 @@ flowchart TD
     end
 
     SS[("Site Snapshot<br/>runs/SYSTEM/site-TIME/")]
+    FBA["Fault Book agent 🤖<br/>tuning/"]
+    FB[("Fault Book<br/>config/faultbook.yaml")]
     CH["Chat assistant 🤖<br/>chat/"]
     DB["Dashboard<br/>dashboard/"]
     ME(["You 👤"])
@@ -40,14 +42,19 @@ flowchart TD
     CH --> DB
     ME <--> CH
     ME -- "approve / reject" --> DB
+    WO -. "Work Order Outcomes" .-> FBA
+    FBA -- "proposed version" --> DB
+    DB -- "approved" --> FB
+    FB --> FR
 ```
 
 🤖 = a model call. 👤 = a person decides. Everything else is deterministic code.
 
-There are two stages with different rhythms:
+There are three stages with different rhythms:
 
 - **Tagging runs once per site.** It turns raw point names into a reviewed **points config**: each point's unit and Haystack tags. That config is what every later step runs on.
 - **`analyze` runs each time you want to know the site's current state.** It runs every deterministic step once and saves the results as a **Site Snapshot**: plain files in one folder. The chat and the dashboard only read that snapshot, so they always agree, and every number traces back to a file.
+- **Rule tuning runs occasionally.** The Fault Book agent learns from how Work Orders closed (the outcomes) and proposes a new Fault Book version. Once a person approves it, the next `analyze` uses it.
 
 ## Phase 1: tagging
 
@@ -135,6 +142,50 @@ sequenceDiagram
 
 One agent, nine tools. Eight only read: site overview, unit details, Work Orders, data health, rule activity, a rule's definition, point search, and trend data. The ninth requests a Work Order. The assistant doesn't recompute anything: the analysis already happened in `analyze`, so its job is to find the right numbers and explain them. That includes comparing a unit with its siblings and arguing the closest look-alike fault ([ADR-0008](decisions/0008-site-snapshot-chat-and-dashboard.md)).
 
+## Phase 3: tuning the Fault Book
+
+The rules come from open-fdd at their default thresholds, and on a real site many of them fire on healthy equipment. The Fault Book agent does what an FDD engineer would: find the rules behind wasted truck rolls, work out why they misfire, and tune them without hiding real faults ([ADR-0009](decisions/0009-fault-book-agent-tunes-existing-rules-cross-system.md)).
+
+```mermaid
+flowchart LR
+    ST["status: scores + each rule's<br/>dispatch outcomes"] --> RD["rule_details: logic,<br/>parameters, bounds"]
+    RD --> BT["backtest(edits) 🤖 proposes<br/>code checks bounds, scores"]
+    BT -- better --> KP["keep"]
+    BT -- worse --> RD
+    KP --> ST
+    KP --> FN["finish → proposal<br/>👤 approve on the dashboard"]
+```
+
+- **What it learns from:** each dispatch's **Work Order Outcome**: confirmed (right unit, right fault), wrong diagnosis, or no fault found. In the benchmark these come from the LBNL labels, standing in for technicians' close-out reports.
+- **What it can change:** disable a rule, or set its parameters within the bounds open-fdd publishes. Code rejects anything else, and rejected edits cost no budget.
+- **How a change is measured:** the rule cache (`tuning/cache.py`) holds every rule setting's results per case, so a backtest only reruns the rule that changed. Then the phase 4 pipeline runs unchanged, including refitting the signature model, and scores it. The score to raise: faults caught (%) minus unnecessary dispatches per 100 box-months.
+- **What keeps it honest:**
+  - It can only keep an edit it has backtested.
+  - It has a fixed backtest budget and a cost cap.
+  - It's judged on a different building (tune on PFPU, judge on SFPU, and the reverse).
+  - A plain non-AI search gets the same budget, as the bar to beat.
+- **Status:** the machinery and the plain tuner are measured. The plain tuner found the main win: one comfort-band threshold, which took the held-out building from 57% to 97% of faults caught. The agent is built and tested but hasn't been evaluated; threshold search turned out not to need one. See [the results](results/phase3-tuning-dev.md) for what an agent should do here instead.
+- **What you see:** the dashboard's Fault Book page lists each proposal with its edits, the reason for each, and before/after scores on both buildings. Approving one writes the next version of `config/faultbook.yaml`; until then nothing changes.
+
+## The agents
+
+Every model call in the tool. Everything else is deterministic code.
+
+| Agent | What it decides | Code | Prompt | When it runs |
+|---|---|---|---|---|
+| Equipment Agent | Which units exist, their types, what feeds what | `tagging/graph.py` | `EQUIPMENT_SYSTEM` in `tagging/prompts.py` | `tag`; a person approves at the Equipment Checkpoint |
+| Point Taggers (one per group of identical units, in parallel) | Haystack tags per point, or exclude it | `tagging/graph.py` | `TAGGER_SYSTEM` in `tagging/prompts.py` | `tag` (multi mode) |
+| Single tagger (baseline) | Everything above in one call | `tagging/single.py` | `SINGLE_AGENT_SYSTEM` in `tagging/prompts.py` | `tag --mode single` |
+| Diagnosis tiebreak | Which of the top faults it is, when the signature model is unsure | `dispatch/diagnose.py` | `TIEBREAK_SYSTEM` in the same file | `analyze --tiebreak`; `benchmark/phase4_tiebreak.py` |
+| Fault Book agent | Which rules to disable or retune, and why | `tuning/agent.py` | `SYSTEM` in the same file | `benchmark/phase3_tune.py`; a person approves the proposed version |
+| Site assistant | Answers questions; may request a Work Order | `chat/agent.py` | `SYSTEM` in the same file; tool descriptions in `chat/tools.py` | `chat`, the dashboard's Ask view |
+
+What agents can't do, by construction:
+- Set a Priority: it's computed in `dispatch/workorder.py`.
+- Approve a Work Order: only `Site.decide` can, and only a person calls it.
+- Change the live Fault Book: only `proposals.decide` can, and only a person calls it.
+- Get past the policy gate: `config/policy.yaml` is evaluated by code.
+
 ## Where people decide
 
 | Checkpoint | When | How |
@@ -143,6 +194,7 @@ One agent, nine tools. Eight only read: site overview, unit details, Work Orders
 | Review Queue (tags) | After `tag` | `review_queue.yaml` lists low-confidence or invalid tags to check |
 | Points config | Before `analyze` | Reviewed file in `config/points/` |
 | Review Queue (Work Orders) | Any time | Dashboard Work Orders page, or `/approve WO-n` in the terminal chat |
+| Fault Book versions | After tuning | Dashboard Fault Book page: approve or reject each proposed version |
 
 ## How safety is enforced
 
@@ -165,6 +217,7 @@ Safety is enforced by code, not by asking the model nicely:
 
 ```
 setup/fetch.py → data/lbnl/ → tag (phase 1) / phase2_run_rules.py → phase2_score_rules.py
+                                            └→ phase3_tune.py (defaults vs. plain tuner vs. agent) → proposals
                                             └→ phase4_dispatch.py, phase4_tiebreak.py → docs/results/
                                             └→ train_signature_model.py → models/signature_model.yaml (used by analyze)
 ```

@@ -13,6 +13,7 @@ Everything specific to evaluating the tool on the [LBNL FDD Data Sets](https://f
 | 5. Phase 4: dispatch | `python benchmark/phase4_dispatch.py --held-out-cases PFPU SFPU` | `runs/dispatch/held_out_cases_PFPU_SFPU/` | free, ~1 min (needs step 3) |
 | 6. Phase 4: tiebreak | `python benchmark/phase4_tiebreak.py` | `runs/dispatch/tiebreak_eval/` | ~$0.50 (needs step 3) |
 | 7. Retrain the model | `python benchmark/train_signature_model.py` | `models/signature_model.yaml` (used by `analyze`) | free, ~1 min (needs step 3) |
+| 8. Phase 3: tune the Fault Book | `python benchmark/phase3_tune.py --check`, then `--tune PFPU --eval SFPU` (and the reverse) | `runs/tuning/` (rule cache, results), `runs/faultbook/` (proposals to review on the dashboard) | plain tuner free (`--methods plain`); the agent is parked, capped at $5 per run if used |
 
 ## Files
 
@@ -20,6 +21,7 @@ Everything specific to evaluating the tool on the [LBNL FDD Data Sets](https://f
 |---|---|
 | `lbnl.py` | Shared helpers: load the case catalog, rename downloaded files |
 | `phase2_run_rules.py`, `phase2_score_rules.py` | Run the Fault Book on every case; score which rules respond to which faults |
+| `phase3_tune.py` | Tune on one system, judge on the other: defaults vs. plain tuner vs. agent; saves proposals |
 | `phase4_dispatch.py`, `phase4_tiebreak.py` | Score Incidents → diagnosis → Work Orders, and the model tiebreak |
 | `train_signature_model.py` | Fit the signature model on every case and save it for `analyze` |
 | `setup/fetch.py` | Download, unzip, and rename into `data/lbnl/` (step 1) |

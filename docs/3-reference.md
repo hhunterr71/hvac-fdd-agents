@@ -88,6 +88,17 @@ A tagging run writes `runs/<system>/<mode>-<time>/`: `profiles.txt` (what the ag
 | `agent.py` | **The site assistant and its prompt.** Runs the tool loop with streaming, yields events (text, tool calls, results, notices) for the terminal and the dashboard, and enforces 15 steps per message and a $2 cap per conversation | `Chat.send`, `Event`, `SYSTEM` |
 | `tools.py` | The nine tools: their descriptions and input schemas (what the model sees) and implementations (what runs). All read the snapshot except `request_work_order` | `SCHEMAS`, `run`, `site_overview`, `unit_details`, `list_work_orders`, `data_health`, `rule_activity`, `explain_rule`, `find_points`, `point_data`, `request_work_order` |
 
+### `tuning/`: phase 3, the Fault Book agent
+
+| File | What it does | Key names |
+|---|---|---|
+| `cache.py` | Runs each (equipment kind, rule, parameters) once per case and saves fault minutes per unit and day, so a backtest only reruns what changed. Folders are keyed by a fingerprint of the points config, role map, and open-fdd version | `RuleCache.ensure`, `Case`, `requests_for` |
+| `backtest.py` | Scores a Fault Book: rules → Incidents → diagnosis → Work Orders → **Work Order Outcomes**, plus a per-rule report of what each rule drove | `Backtester.run`, `score`, `rule_report`, `Result` |
+| `edits.py` | What may change: disable a rule, or set parameters within open-fdd's bounds. Validates, applies, diffs, and writes Fault Book YAML | `Edit`, `make`, `validate`, `apply`, `diff`, `write`, `rule_params` |
+| `agent.py` | **The Fault Book agent and its prompt.** Tools: `status`, `rule_details`, `backtest`, `keep`, `finish`. Code enforces bounds, the budget, the cost cap, and keep-only-what-was-backtested | `Session`, `run`, `SYSTEM` |
+| `plain.py` | The plain tuner the agent must beat: a greedy search over the rules most blamed for "no fault found" dispatches | `tune`, `blame` |
+| `proposals.py` | Proposed Fault Book versions waiting for a person. `decide` is the only way `config/faultbook.yaml` changes, and it refuses a proposal made against an older version | `save`, `all_proposals`, `decide` |
+
 ### `scoring/`: benchmark only
 
 | File | What it does |
@@ -107,6 +118,7 @@ One file per view. See [dashboard/README.md](../dashboard/README.md).
 | `chat.py` | Ask: the assistant, suggested questions, which tools it used, a New conversation button |
 | `units.py` | One unit: findings, diagnosis ranking, evidence vs. siblings, a chosen point vs. its siblings over time |
 | `work_orders.py` | The Review Queue by status, and a form to request a Work Order |
+| `fault_book.py` | Proposed Fault Book versions: edits with reasons, before/after on the tuning and held-out systems, Approve / Reject |
 | `data_health.py` | Outages, per-unit rollup, the problem points |
 | `charts.py` | The Altair charts and their light/dark color tokens |
 
@@ -137,7 +149,8 @@ Step-by-step order, costs, and run times are in [benchmark/README.md](../benchma
 | `lbnl.py` | Shared helpers: load the case catalog, rename downloaded files |
 | `phase2_run_rules.py` | Runs the Fault Book on every case of a system in parallel; writes Candidate Windows and rule outcomes to `runs/fdd/` |
 | `phase2_score_rules.py` | Scores those outcomes against the labels (→ `results/phase2-rules-baseline.md`) |
-| `phase4_dispatch.py` | Builds Incidents at 12 month-ends per case and scores each dispatch variant: persistence only, + peer comparison, + signature model (→ `results/phase4-dispatch-dev.md`) |
+| `phase3_tune.py` | Tunes on one system and judges on the other: defaults vs. the plain tuner vs. the agent. Saves each tuned Fault Book as a proposal. `--check` confirms the backtester reproduces phase 4's numbers |
+| `phase4_dispatch.py`, `phase4_tiebreak.py` | Builds Incidents at 12 month-ends per case and scores each dispatch variant: persistence only, + peer comparison, + signature model (→ `results/phase4-dispatch-dev.md`) |
 | `phase4_tiebreak.py` | Scores the model tiebreak against the signature model on each case's first dispatch |
 | `train_signature_model.py` | Fits the signature model on all cases and writes `models/signature_model.yaml` |
 | `setup/fetch.py` | Downloads, unzips, and renames LBNL data into `data/lbnl/` |
@@ -165,6 +178,7 @@ Run with `.venv/Scripts/python -m pytest`. No API key or download needed: model 
 | `test_health.py` | Outages, frozen and constant sensors, garbage values, blank stretches |
 | `test_site.py` | Work Order requests, one per unit, approve/reject, life-safety blocking |
 | `test_chat.py` | The tool loop, errors returned to the model, cut-off responses, the cost cap |
+| `test_tuning.py` | Edit bounds, Work Order Outcomes, the agent's guardrails (budget, keep-after-backtest), approving and refusing proposals |
 | `test_credentials.py` | Finding and saving the API key without ever committing it |
 
 ## `docs/`
@@ -173,7 +187,7 @@ Run with `.venv/Scripts/python -m pytest`. No API key or download needed: model 
 |---|---|
 | `README.md`, `1-overview.md`, `2-architecture.md`, `3-reference.md` | This write-up |
 | `glossary.md` | Project terms and the words to avoid |
-| `decisions/` | Design decisions (ADR-0001 to ADR-0008) |
+| `decisions/` | Design decisions (ADR-0001 to ADR-0009) |
 | `results/` | Measured results per phase |
 | `history/proposal.md` | The original plan |
 
@@ -183,4 +197,4 @@ Run with `.venv/Scripts/python -m pytest`. No API key or download needed: model 
 |---|---|
 | `data/sample/` | Two weeks of LBNL data, fault-free and with a stuck damper (committed) |
 | `data/lbnl/` | The full LBNL data from `benchmark/setup/fetch.py` (git-ignored) |
-| `runs/` | Everything the tools write: tagging runs, Site Snapshots, benchmark outputs (git-ignored) |
+| `runs/` | Everything the tools write: tagging runs, Site Snapshots, the rule cache (`tuning/cache/`), Fault Book proposals (`faultbook/`), benchmark outputs (git-ignored) |

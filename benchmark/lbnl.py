@@ -36,3 +36,17 @@ def rename_files(systems: list[str] | None = None) -> None:
             old.rename(new)
         else:
             print(f"missing: {old}")
+
+
+def cases(system: str):
+    """The system's LBNL cases as backtest Cases, with their true faulted unit and fault type."""
+    from hvac_fdd_agents.tuning.cache import Case
+    out = []
+    for r in load_catalog():
+        if r["system"] != system:
+            continue
+        faulty = r["fault_free"] == "False"
+        out.append(Case(name=r["file"], trend=case_file(system, r["file"]),
+                        faulted_unit=r["unit"] if faulty else None,
+                        fault=f"{r['component']}_{r['mode']}" if faulty else None))
+    return out

@@ -41,9 +41,6 @@ class RuleOutcome:
 def run(trend_file: Path, cfg: PointsConfig, book: FaultBook, role_map: dict,
         units: list[str] | None = None, con=None) -> tuple[list[CandidateWindow], list[RuleOutcome]]:
     """Run the Fault Book on every unit. Pass `con` (table `trend` already loaded) to skip reloading."""
-    from open_fdd.rules import RULES_BY_ID
-    from open_fdd.rules.runner import run_cookbook_rule
-
     con = con or trend.load(trend_file)[0]
     windows, outcomes = [], []
     for unit in units or list(cfg.units):
@@ -51,19 +48,34 @@ def run(trend_file: Path, cfg: PointsConfig, book: FaultBook, role_map: dict,
         enabled = book.enabled(kind) if kind else {}
         if not enabled:
             continue
-        mapping = roles.resolve(cfg, unit, role_map)
-        frame = _frame(con, mapping)
+        frame = unit_frame(con, cfg, unit, role_map)
         for rule_id, params in enabled.items():
-            res = run_cookbook_rule(
-                RULES_BY_ID[rule_id], frame, equipment_id=unit, equipment_kind=kind,
-                equipment_type=OPEN_FDD_TYPE[kind], poll_seconds=POLL_SECONDS,
-                params_by_rule={rule_id: params},
-            )
-            outcomes.append(RuleOutcome(unit, rule_id, res.status, float(res.fault_hours or 0.0),
-                                        list(res.missing_roles or [])))
-            if res.confirmed_fault is not None and res.status == "FAULT":
-                windows += _windows(res.confirmed_fault, unit, rule_id)
+            outcome, w = run_rule(frame, unit, kind, rule_id, params)
+            outcomes.append(outcome)
+            windows += w
     return windows, outcomes
+
+
+def unit_frame(con, cfg: PointsConfig, unit: str, role_map: dict) -> pd.DataFrame:
+    """The unit's data with columns named by open-fdd role (found by Haystack tags)."""
+    return _frame(con, roles.resolve(cfg, unit, role_map))
+
+
+def run_rule(frame: pd.DataFrame, unit: str, kind: str, rule_id: str,
+             params: dict) -> tuple[RuleOutcome, list[CandidateWindow]]:
+    """One rule on one unit: its outcome and its Candidate Windows."""
+    from open_fdd.rules import RULES_BY_ID
+    from open_fdd.rules.runner import run_cookbook_rule
+
+    res = run_cookbook_rule(
+        RULES_BY_ID[rule_id], frame, equipment_id=unit, equipment_kind=kind,
+        equipment_type=OPEN_FDD_TYPE[kind], poll_seconds=POLL_SECONDS,
+        params_by_rule={rule_id: params},
+    )
+    outcome = RuleOutcome(unit, rule_id, res.status, float(res.fault_hours or 0.0), list(res.missing_roles or []))
+    windows = _windows(res.confirmed_fault, unit, rule_id) \
+        if res.confirmed_fault is not None and res.status == "FAULT" else []
+    return outcome, windows
 
 
 def _frame(con, mapping: dict[str, str]) -> pd.DataFrame:

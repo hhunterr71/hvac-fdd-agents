@@ -22,9 +22,10 @@ Each step is a place an agent can help, with a person checking the work.
 | **Check the data** | Code checks for missing rows, gaps, frozen sensors, and impossible values | Code |
 | **Detect** | Fault rules from open-fdd (which implements Guideline 36) flag suspect windows of time on each unit | Code |
 | **Diagnose and dispatch** | Code merges the flags per unit, compares each box with its identical siblings, keeps only problems that keep recurring, ranks the likely fault, and writes a Work Order with priority, trade, and action | Code; a model breaks close calls between look-alike faults |
+| **Tune the rules** | A tuner finds the rules that sent technicians to healthy equipment and backtests changes (a threshold, a hold time, turning a rule off), judged on a building it never saw. A plain search does this today; an agent version is built but parked | The tuner proposes; a person approves each new Fault Book version |
 | **Answer questions** | A chat assistant (terminal or dashboard) answers "How is my system performing?", "How is connectivity behaving?", "Why is VAV-S flagged?", citing the numbers. It can request a Work Order | The assistant requests; a person approves |
 
-The fault rules aren't tuned to a site yet. An agent that tunes them from technician feedback (phase 3) is the next piece to build.
+Rule tuning (phase 3): tuned on one building, one rule change took the other building from 57% to 97% of faults caught, with a third fewer wasted dispatches. A plain search found it, so the agent version is parked until there's a job only an agent can do ([results](results/phase3-tuning-dev.md)).
 
 ## How you use it
 

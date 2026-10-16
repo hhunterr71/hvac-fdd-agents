@@ -9,11 +9,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # so `dashboard.*`
 
 import streamlit as st  # noqa: E402
 
-from dashboard import chat, common, data_health, overview, units, work_orders  # noqa: E402
+from dashboard import chat, common, data_health, fault_book, overview, units, work_orders  # noqa: E402
 
 st.set_page_config(page_title="HVAC FDD Agents", page_icon="🌡️", layout="wide")
 
-VIEWS = {"Overview": overview, "Ask": chat, "Units": units, "Work Orders": work_orders, "Data health": data_health}
+VIEWS = {"Overview": overview, "Ask": chat, "Units": units, "Work Orders": work_orders, "Data health": data_health,
+         "Fault Book": fault_book}
 
 
 def cli_site() -> str | None:

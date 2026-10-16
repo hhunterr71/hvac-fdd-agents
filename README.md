@@ -6,11 +6,11 @@ A multi-agent facilities assistant for building HVAC data. Give it a BMS trend e
 
 1. **Tags** every point with Project Haystack tags, with a human checkpoint on equipment before point tagging.
 2. **Runs fault rules** from a Fault Book seeded with [open-fdd](https://github.com/bbartling/open-fdd), which implements ASHRAE Guideline 36 fault conditions.
-3. **Manages the Fault Book**: an agent finds noisy rules and coverage gaps and proposes changes for review.
+3. **Tunes the Fault Book**: finds rules that fire on healthy equipment, backtests changes against technician feedback, and proposes a new version for a person to approve. A plain search does the tuning today; an agent for it is built but parked.
 4. **Diagnoses and dispatches**: flagged issues become structured Work Orders behind a policy gate.
 5. **Answers questions** in a chat and a dashboard: "How is my system performing?", "How is connectivity behaving?", "Why is VAV-S flagged?". The chat can request a Work Order; a person approves it.
 
-It is evaluated against the public [LBNL FDD Data Sets](https://faultdetection.lbl.gov/data), where every fault is labeled. Status: phases 1 (tagging), 2 (rules), and 4 (diagnose and dispatch) built and measured on the VAV development set; chat and dashboard built; phase 3 (Fault Book agent) next. See [docs/](docs/README.md) for how it works.
+It is evaluated against the public [LBNL FDD Data Sets](https://faultdetection.lbl.gov/data), where every fault is labeled. Status: phases 1 (tagging), 2 (rules), and 4 (diagnose and dispatch) built and measured on the VAV development set; chat and dashboard built; phase 3's tuning machinery and plain tuner measured, the Fault Book agent built but parked ([results](docs/results/phase3-tuning-dev.md)). See [docs/](docs/README.md) for how it works.
 
 ## Quick start
 
