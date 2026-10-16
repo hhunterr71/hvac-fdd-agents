@@ -1,0 +1,58 @@
+# Remediation key: for each fault type, who goes and what they do, and how bad it is.
+# Drafted by Claude from the LBNL fault descriptions; NOT field-reviewed. Review before any
+# real deployment. Used for Work Order content and Priority, and to score Dispatch: a
+# dispatch is "right fix" when the diagnosed fault's trade and action match the true one's.
+#
+# consequence: safety > equipment > energy > comfort (sets the base Priority).
+# Fault type names match benchmark/ground_truth/cases.yaml: <component>_<mode>.
+
+faults:
+  damper_stuck:
+    trade: controls technician
+    action: Inspect the box damper actuator and linkage; stroke the damper and repair or replace the actuator.
+    consequence: comfort
+  damper_control_unstable:
+    trade: controls technician
+    action: Retune the box airflow control loop; check for a hunting actuator.
+    consequence: equipment
+  airflow_sensor_bias:
+    trade: controls technician
+    action: Recalibrate the box airflow sensor (zero and span); inspect the flow pickup and tubing.
+    consequence: energy
+  reheat_valve_stuck:
+    trade: controls technician
+    action: Inspect the reheat valve actuator; stroke the valve and repair or replace the actuator.
+    consequence: energy
+  reheat_valve_leaking:
+    trade: HVAC mechanic
+    action: Repair or replace the reheat valve (seat or body passing water when closed).
+    consequence: energy
+  reheat_coil_fouling_airside:
+    trade: HVAC mechanic
+    action: Clean the reheat coil air side; check upstream filtration.
+    consequence: energy
+  reheat_coil_fouling_waterside:
+    trade: HVAC mechanic
+    action: Flush the reheat coil water side; check the strainer and balancing valve.
+    consequence: energy
+  zone_temp_sensor_bias:
+    trade: controls technician
+    action: Check the zone temperature sensor against a reference; recalibrate or replace it.
+    consequence: comfort
+  zone_temp_control_unstable:
+    trade: controls technician
+    action: Retune the zone temperature control loop.
+    consequence: comfort
+  terminal_fan_restricted_flow:
+    trade: HVAC mechanic
+    action: Inspect the terminal fan, its filter, and the outlet for obstruction; clean or repair.
+    consequence: equipment
+  # Not an LBNL fault: for Data Health problems (frozen or missing values). Only requested
+  # by a person (via chat), never dispatched by the pipeline.
+  point_data_loss:
+    trade: controls technician
+    action: Restore the listed points' data; check the controller is online, its network connection, the sensor wiring, and the trend setup.
+    consequence: comfort
+
+# Base priority by consequence (1 = most urgent). Persistence and magnitude adjust it.
+priority_base: {safety: 1, equipment: 2, energy: 3, comfort: 3}

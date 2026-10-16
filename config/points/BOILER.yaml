@@ -1,0 +1,78 @@
+# Reference Mapping for BOILER: the answer key for the tagging agent.
+# Drafted by Claude from the LBNL point descriptions (data/lbnl/docs/, LBNL_FDD_Data_Sets_Boiler_Plant.pdf Table 2);
+# spot-check before relying on it. Tags use flat Project Haystack style.
+# The tagging agent never sees this file; it works from raw names and data only.
+system: BOILER
+timestamp: {column: "Datetime", format: "%Y-%m-%d %H:%M:%S"}
+units:
+  HW-LOOP: {type: hot-water-plant}
+  BLR-1: {type: boiler, plantRef: HW-LOOP}
+  BLR-2: {type: boiler, plantRef: HW-LOOP}
+  HWP-1: {type: pump, plantRef: HW-LOOP}
+  HWP-2: {type: pump, plantRef: HW-LOOP}
+points:
+  "BOI_FLOW_1":
+    unit: BLR-1
+    tags: [hot-water, flow, sensor]
+  "BOI_FLOW_2":
+    unit: BLR-2
+    tags: [hot-water, flow, sensor]
+  "BOI_GAS_CSUM_1":
+    unit: BLR-1
+    tags: [naturalGas, power, sensor]
+  "BOI_GAS_CSUM_2":
+    unit: BLR-2
+    tags: [naturalGas, power, sensor]
+  "BOI_RW_TEMP_1":
+    unit: BLR-1
+    tags: [hot-water, entering, temp, sensor]
+  "BOI_RW_TEMP_2":
+    unit: BLR-2
+    tags: [hot-water, entering, temp, sensor]
+  "BOI_STA_1":
+    unit: BLR-1
+    tags: [run, sensor]
+  "BOI_STA_2":
+    unit: BLR-2
+    tags: [run, sensor]
+  "BOI_SW_TEMP_1":
+    unit: BLR-1
+    tags: [hot-water, leaving, temp, sensor]
+  "BOI_SW_TEMP_2":
+    unit: BLR-2
+    tags: [hot-water, leaving, temp, sensor]
+  "HWL_DP":
+    unit: HW-LOOP
+    tags: [hot-water, delta, pressure, sensor]
+  "HWL_DPSPT":
+    unit: HW-LOOP
+    tags: [hot-water, delta, pressure, sp]
+  "HWL_RW_TEMP":
+    unit: HW-LOOP
+    tags: [hot-water, entering, temp, sensor]
+  "HWL_SW_TEMP":
+    unit: HW-LOOP
+    tags: [hot-water, leaving, temp, sensor]
+  "OA_TEMP":
+    unit: HW-LOOP
+    tags: [outside, air, temp, sensor]
+  "PM_POW_1":
+    unit: HWP-1
+    tags: [pump, elec, power, sensor]
+  "PM_POW_2":
+    unit: HWP-2
+    tags: [pump, elec, power, sensor]
+  "PM_SPD_1":
+    unit: HWP-1
+    tags: [pump, speed, sensor]
+  "PM_SPD_2":
+    unit: HWP-2
+    tags: [pump, speed, sensor]
+  "PM_STA_1":
+    unit: HWP-1
+    tags: [pump, run, sensor]
+  "PM_STA_2":
+    unit: HWP-2
+    tags: [pump, run, sensor]
+  "SEC_POW":
+    exclude: "calculated load (loop flow x supply/return temperature difference); not a measurement"

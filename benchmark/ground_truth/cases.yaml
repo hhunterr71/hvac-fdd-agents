@@ -1,0 +1,3495 @@
+# Ground truth for every LBNL case. Only the scorer may read this file.
+# Generated from benchmark/ground_truth/catalog.csv by apply_catalog.py; edit the catalog, not this.
+# unit/component/mode/severity: what failed and how. twin: fault-free file to compare against.
+# twin_aligned: false means fault and twin cover different dates, so only case-level scoring applies.
+
+cases:
+  - case: PFPU/pfpu__fault_free.csv
+    system: PFPU
+    fault_free: true
+    original_file: "PFPU_FaultFree.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3"
+  - case: PFPU/pfpu__zone_temp_control_unstable.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: zone_temp_control
+    mode: unstable
+    severity: null
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_RMTEMPUnstable.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_coil_fouling_airside__minor.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_airside
+    severity: "minor"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatCoilFouling_Airside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_coil_fouling_airside__moderate.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_airside
+    severity: "moderate"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatCoilFouling_Airside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_coil_fouling_airside__severe.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_airside
+    severity: "severe"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatCoilFouling_Airside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_coil_fouling_waterside__minor.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_waterside
+    severity: "minor"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatCoilFouling_Waterside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "No zone diverges from the twin; VAV-S assumed (every other case in this dataset is VAV-S). Likely too faint to detect."
+  - case: PFPU/pfpu__reheat_coil_fouling_waterside__moderate.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_waterside
+    severity: "moderate"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatCoilFouling_Waterside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "No zone diverges from the twin; VAV-S assumed (every other case in this dataset is VAV-S). Likely too faint to detect."
+  - case: PFPU/pfpu__reheat_coil_fouling_waterside__severe.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_waterside
+    severity: "severe"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatCoilFouling_Waterside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "No zone diverges from the twin; VAV-S assumed (every other case in this dataset is VAV-S). Likely too faint to detect."
+  - case: PFPU/pfpu__reheat_valve_leaking__20pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: leaking
+    severity: "20pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatVLVLeak_20%MaxFlow.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_valve_leaking__50pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: leaking
+    severity: "50pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatVLVLeak_50%MaxFlow.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_valve_leaking__80pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: leaking
+    severity: "80pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatVLVLeak_80%MaxFlow.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_valve_stuck__0pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: stuck
+    severity: "0pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatVLVStuck_0%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_valve_stuck__100pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: stuck
+    severity: "100pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatVLVStuck_100%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_valve_stuck__20pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: stuck
+    severity: "20pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatVLVStuck_20%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_valve_stuck__50pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: stuck
+    severity: "50pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatVLVStuck_50%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__reheat_valve_stuck__80pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: stuck
+    severity: "80pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_ReheatVLVStuck_80%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__zone_temp_sensor_bias__pos2c.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: zone_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_SensorBias_RMTEMP_+2C.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__zone_temp_sensor_bias__pos4c.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: zone_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_SensorBias_RMTEMP_+4C.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__zone_temp_sensor_bias__neg2c.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: zone_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_SensorBias_RMTEMP_-2C.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__zone_temp_sensor_bias__neg4c.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: zone_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_SensorBias_RMTEMP_-4C.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__airflow_sensor_bias__pos200cfm.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: airflow_sensor
+    mode: bias
+    severity: "pos200cfm"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_SensorBias_VAVAirflow_+200CFM.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__airflow_sensor_bias__pos400cfm.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: airflow_sensor
+    mode: bias
+    severity: "pos400cfm"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_SensorBias_VAVAirflow_+400CFM.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__airflow_sensor_bias__neg200cfm.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: airflow_sensor
+    mode: bias
+    severity: "neg200cfm"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_SensorBias_VAVAirflow_-200CFM.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__airflow_sensor_bias__neg400cfm.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: airflow_sensor
+    mode: bias
+    severity: "neg400cfm"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_SensorBias_VAVAirflow_-400CFM.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__damper_stuck__0pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper
+    mode: stuck
+    severity: "0pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_VAVDMPRStuck_0%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__damper_stuck__100pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper
+    mode: stuck
+    severity: "100pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_VAVDMPRStuck_100%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__damper_stuck__20pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper
+    mode: stuck
+    severity: "20pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_VAVDMPRStuck_20%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__damper_stuck__50pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper
+    mode: stuck
+    severity: "50pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_VAVDMPRStuck_50%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__damper_stuck__80pct.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper
+    mode: stuck
+    severity: "80pct"
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_VAVDMPRStuck_80%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__damper_control_unstable.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper_control
+    mode: unstable
+    severity: null
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_VAVDMPRUnstable.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: PFPU/pfpu__terminal_fan_restricted_flow.csv
+    system: PFPU
+    fault_free: false
+    unit: VAV-S
+    component: terminal_fan
+    mode: restricted_flow
+    severity: null
+    twin: PFPU/pfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "PFPU_VAVFanRestrictFlow.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 3; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__fault_free.csv
+    system: SFPU
+    fault_free: true
+    original_file: "SFPU_FaultFree.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4"
+  - case: SFPU/sfpu__zone_temp_control_unstable.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: zone_temp_control
+    mode: unstable
+    severity: null
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_RMTEMPUnstable.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_coil_fouling_airside__minor.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_airside
+    severity: "minor"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatCoilFouling_Airside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_coil_fouling_airside__moderate.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_airside
+    severity: "moderate"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatCoilFouling_Airside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_coil_fouling_airside__severe.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_airside
+    severity: "severe"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatCoilFouling_Airside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_coil_fouling_waterside__minor.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_waterside
+    severity: "minor"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatCoilFouling_Waterside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "No zone diverges from the twin; VAV-S assumed (every other case in this dataset is VAV-S). Likely too faint to detect."
+  - case: SFPU/sfpu__reheat_coil_fouling_waterside__moderate.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_waterside
+    severity: "moderate"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatCoilFouling_Waterside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "No zone diverges from the twin; VAV-S assumed (every other case in this dataset is VAV-S). Likely too faint to detect."
+  - case: SFPU/sfpu__reheat_coil_fouling_waterside__severe.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_coil
+    mode: fouling_waterside
+    severity: "severe"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatCoilFouling_Waterside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "No zone diverges from the twin; VAV-S assumed (every other case in this dataset is VAV-S). Likely too faint to detect."
+  - case: SFPU/sfpu__reheat_valve_leaking__20pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: leaking
+    severity: "20pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatVLVLeak_20%MaxFlow.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_valve_leaking__50pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: leaking
+    severity: "50pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatVLVLeak_50%MaxFlow.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_valve_leaking__80pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: leaking
+    severity: "80pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatVLVLeak_80%MaxFlow.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_valve_stuck__0pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: stuck
+    severity: "0pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatVLVStuck_0%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_valve_stuck__100pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: stuck
+    severity: "100pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatVLVStuck_100%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_valve_stuck__20pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: stuck
+    severity: "20pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatVLVStuck_20%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_valve_stuck__50pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: stuck
+    severity: "50pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatVLVStuck_50%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__reheat_valve_stuck__80pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: reheat_valve
+    mode: stuck
+    severity: "80pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_ReheatVLVStuck_80%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__zone_temp_sensor_bias__pos2c.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: zone_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_SensorBias_RMTEMP_+2C.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__zone_temp_sensor_bias__pos4c.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: zone_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_SensorBias_RMTEMP_+4C.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__zone_temp_sensor_bias__neg2c.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: zone_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_SensorBias_RMTEMP_-2C.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__zone_temp_sensor_bias__neg4c.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: zone_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_SensorBias_RMTEMP_-4C.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__airflow_sensor_bias__pos200cfm.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: airflow_sensor
+    mode: bias
+    severity: "pos200cfm"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_SensorBias_VAVAirflow_+200CFM.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__airflow_sensor_bias__pos400cfm.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: airflow_sensor
+    mode: bias
+    severity: "pos400cfm"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_SensorBias_VAVAirflow_+400CFM.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__airflow_sensor_bias__neg200cfm.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: airflow_sensor
+    mode: bias
+    severity: "neg200cfm"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_SensorBias_VAVAirflow_-200CFM.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__airflow_sensor_bias__neg400cfm.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: airflow_sensor
+    mode: bias
+    severity: "neg400cfm"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_SensorBias_VAVAirflow_-400CFM.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__damper_stuck__0pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper
+    mode: stuck
+    severity: "0pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_VAVDMPRStuck_0%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__damper_stuck__100pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper
+    mode: stuck
+    severity: "100pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_VAVDMPRStuck_100%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__damper_stuck__20pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper
+    mode: stuck
+    severity: "20pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_VAVDMPRStuck_20%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__damper_stuck__50pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper
+    mode: stuck
+    severity: "50pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_VAVDMPRStuck_50%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__damper_stuck__80pct.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper
+    mode: stuck
+    severity: "80pct"
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_VAVDMPRStuck_80%.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__damper_control_unstable.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: damper_control
+    mode: unstable
+    severity: null
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_VAVDMPRUnstable.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SFPU/sfpu__terminal_fan_restricted_flow.csv
+    system: SFPU
+    fault_free: false
+    unit: VAV-S
+    component: terminal_fan
+    mode: restricted_flow
+    severity: null
+    twin: SFPU/sfpu__fault_free.csv
+    twin_aligned: true
+    original_file: "SFPU_VAVFanRestrictFlow.csv"
+    source: "LBNL_FDD_Data_Sets_FPU.pdf Table 4; zone from find_faulted_zones.py"
+    note: "LBNL inventory says zone W; data shows the fault in this zone."
+  - case: SDAHU/sdahu__fault_free.csv
+    system: SDAHU
+    fault_free: true
+    original_file: "AHU_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__supply_air_temp_sensor_bias__neg2c.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_bias_-2_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+    note: "File is named coi_bias; inventory lists it as sa_bias (supply air temp sensor). Logged SA_TEMP is the true value, not the biased reading."
+  - case: SDAHU/sdahu__supply_air_temp_sensor_bias__neg4c.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_bias_-4_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+    note: "File is named coi_bias; inventory lists it as sa_bias (supply air temp sensor). Logged SA_TEMP is the true value, not the biased reading."
+  - case: SDAHU/sdahu__supply_air_temp_sensor_bias__pos2c.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_bias_2_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+    note: "File is named coi_bias; inventory lists it as sa_bias (supply air temp sensor). Logged SA_TEMP is the true value, not the biased reading."
+  - case: SDAHU/sdahu__supply_air_temp_sensor_bias__pos4c.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_bias_4_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+    note: "File is named coi_bias; inventory lists it as sa_bias (supply air temp sensor). Logged SA_TEMP is the true value, not the biased reading."
+  - case: SDAHU/sdahu__cooling_valve_leaking__10pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: leaking
+    severity: "10pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_leakage_010_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__cooling_valve_leaking__25pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: leaking
+    severity: "25pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_leakage_025_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__cooling_valve_leaking__40pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: leaking
+    severity: "40pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_leakage_040_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__cooling_valve_leaking__50pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: leaking
+    severity: "50pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_leakage_050_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__cooling_valve_stuck__10pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "10pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_stuck_010_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__cooling_valve_stuck__25pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "25pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_stuck_025_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__cooling_valve_stuck__50pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "50pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_stuck_050_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__cooling_valve_stuck__75pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "75pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "coi_stuck_075_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__oa_damper_stuck__10pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_damper
+    mode: stuck
+    severity: "10pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "damper_stuck_010_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__oa_damper_stuck__25pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_damper
+    mode: stuck
+    severity: "25pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "damper_stuck_025_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__oa_damper_stuck__75pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_damper
+    mode: stuck
+    severity: "75pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "damper_stuck_075_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+  - case: SDAHU/sdahu__oa_damper_stuck__100pct.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_damper
+    mode: stuck
+    severity: "100pct"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "damper_stuck_100_annual_short.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+    note: "Data covers Apr 1 to Nov 1 only."
+  - case: SDAHU/sdahu__oa_temp_sensor_bias__neg2c.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "oa_bias_-2_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+    note: "Logged OA_TEMP is the true value (identical to the twin), not the biased reading."
+  - case: SDAHU/sdahu__oa_temp_sensor_bias__neg4c.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "oa_bias_-4_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+    note: "Logged OA_TEMP is the true value (identical to the twin), not the biased reading."
+  - case: SDAHU/sdahu__oa_temp_sensor_bias__pos2c.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "oa_bias_2_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+    note: "Logged OA_TEMP is the true value (identical to the twin), not the biased reading."
+  - case: SDAHU/sdahu__oa_temp_sensor_bias__pos4c.csv
+    system: SDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: SDAHU/sdahu__fault_free.csv
+    twin_aligned: true
+    original_file: "oa_bias_4_annual.csv"
+    source: "LBNL_FDD_Data_Sets_SDAHU.pdf Tables 3-4"
+    note: "Logged OA_TEMP is the true value (identical to the twin), not the biased reading."
+  - case: DDAHU/ddahu__cooling_control_unstable.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_control
+    mode: unstable
+    severity: null
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_CoolSeqUnstable.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "All four zones diverge equally from the twin, so this is an AHU-level fault."
+  - case: DDAHU/ddahu__cold_deck_damper_stuck__0pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: VAV-SA
+    component: cold_deck_damper
+    mode: stuck
+    severity: "0pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_Cold_0.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "Terminal box damper; zone from comparison with the twin."
+  - case: DDAHU/ddahu__cold_deck_damper_stuck__100pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: VAV-SA
+    component: cold_deck_damper
+    mode: stuck
+    severity: "100pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_Cold_100.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "Terminal box damper; zone from comparison with the twin."
+  - case: DDAHU/ddahu__cold_deck_damper_stuck__20pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: VAV-SA
+    component: cold_deck_damper
+    mode: stuck
+    severity: "20pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_Cold_20.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "Terminal box damper; zone from comparison with the twin."
+  - case: DDAHU/ddahu__cold_deck_damper_stuck__50pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: VAV-SA
+    component: cold_deck_damper
+    mode: stuck
+    severity: "50pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_Cold_50.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "Terminal box damper; zone from comparison with the twin."
+  - case: DDAHU/ddahu__cold_deck_damper_stuck__80pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: VAV-SA
+    component: cold_deck_damper
+    mode: stuck
+    severity: "80pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_Cold_80.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "Terminal box damper; zone from comparison with the twin."
+  - case: DDAHU/ddahu__hot_deck_damper_stuck__0pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: VAV-SA
+    component: hot_deck_damper
+    mode: stuck
+    severity: "0pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_Hot_0.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "Terminal box damper; zone from comparison with the twin."
+  - case: DDAHU/ddahu__hot_deck_damper_stuck__100pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: VAV-SA
+    component: hot_deck_damper
+    mode: stuck
+    severity: "100pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_Hot_100.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "Terminal box damper; zone from comparison with the twin."
+  - case: DDAHU/ddahu__hot_deck_damper_stuck__20pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: VAV-SA
+    component: hot_deck_damper
+    mode: stuck
+    severity: "20pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_Hot_20.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "Terminal box damper; zone from comparison with the twin."
+  - case: DDAHU/ddahu__hot_deck_damper_stuck__50pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: VAV-SA
+    component: hot_deck_damper
+    mode: stuck
+    severity: "50pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_Hot_50.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "Terminal box damper; zone from comparison with the twin."
+  - case: DDAHU/ddahu__hot_deck_damper_stuck__80pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: VAV-SA
+    component: hot_deck_damper
+    mode: stuck
+    severity: "80pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_Hot_80.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "Terminal box damper; zone from comparison with the twin."
+  - case: DDAHU/ddahu__oa_damper_stuck__0pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_damper
+    mode: stuck
+    severity: "0pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_OA_0.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__oa_damper_stuck__100pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_damper
+    mode: stuck
+    severity: "100pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_OA_100.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__oa_damper_stuck__28pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_damper
+    mode: stuck
+    severity: "28pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_OA_28.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+    note: "Inventory Table 4 lists 20%/50% for the 28/45 files; file names and Table 3 say 28%/45%."
+  - case: DDAHU/ddahu__oa_damper_stuck__45pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_damper
+    mode: stuck
+    severity: "45pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_OA_45.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+    note: "Inventory Table 4 lists 20%/50% for the 28/45 files; file names and Table 3 say 28%/45%."
+  - case: DDAHU/ddahu__oa_damper_stuck__80pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: oa_damper
+    mode: stuck
+    severity: "80pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_DMPRStuck_OA_80.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__fault_free.csv
+    system: DDAHU
+    fault_free: true
+    original_file: "DualDuct_FaultFree.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cooling_coil_fouling_airside__minor.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_coil
+    mode: fouling_airside
+    severity: "minor"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Cooling_Airside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cooling_coil_fouling_airside__moderate.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_coil
+    mode: fouling_airside
+    severity: "moderate"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Cooling_Airside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cooling_coil_fouling_airside__severe.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_coil
+    mode: fouling_airside
+    severity: "severe"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Cooling_Airside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cooling_coil_fouling_waterside__minor.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_coil
+    mode: fouling_waterside
+    severity: "minor"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Cooling_Waterside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cooling_coil_fouling_waterside__moderate.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_coil
+    mode: fouling_waterside
+    severity: "moderate"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Cooling_Waterside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cooling_coil_fouling_waterside__severe.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_coil
+    mode: fouling_waterside
+    severity: "severe"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Cooling_Waterside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_coil_fouling_airside__minor.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_coil
+    mode: fouling_airside
+    severity: "minor"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Heating_Airside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_coil_fouling_airside__moderate.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_coil
+    mode: fouling_airside
+    severity: "moderate"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Heating_Airside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_coil_fouling_airside__severe.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_coil
+    mode: fouling_airside
+    severity: "severe"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Heating_Airside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_coil_fouling_waterside__minor.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_coil
+    mode: fouling_waterside
+    severity: "minor"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Heating_Waterside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_coil_fouling_waterside__moderate.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_coil
+    mode: fouling_waterside
+    severity: "moderate"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Heating_Waterside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_coil_fouling_waterside__severe.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_coil
+    mode: fouling_waterside
+    severity: "severe"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_Fouling_Heating_Waterside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_control_unstable.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_control
+    mode: unstable
+    severity: null
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_HeatSeqUnstable.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4; zone from find_faulted_zones.py"
+    note: "All four zones diverge equally from the twin, so this is an AHU-level fault."
+  - case: DDAHU/ddahu__cold_deck_supply_temp_sensor_bias__pos2c.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cold_deck_supply_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_CSA_+2C.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cold_deck_supply_temp_sensor_bias__pos4c.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cold_deck_supply_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_CSA_+4C.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cold_deck_supply_temp_sensor_bias__neg2c.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cold_deck_supply_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_CSA_-2C.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cold_deck_supply_temp_sensor_bias__neg4c.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cold_deck_supply_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_CSA_-4C.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cold_deck_static_pressure_sensor_bias__pos0p2inwg.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cold_deck_static_pressure_sensor
+    mode: bias
+    severity: "pos0p2inwg"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_CSP_+2inwg.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+    note: "File name says +2 in.wg; inventory table gives +0.2 in.wg."
+  - case: DDAHU/ddahu__cold_deck_static_pressure_sensor_bias__pos0p4inwg.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cold_deck_static_pressure_sensor
+    mode: bias
+    severity: "pos0p4inwg"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_CSP_+4inwg.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+    note: "File name says +4 in.wg; inventory table gives +0.4 in.wg."
+  - case: DDAHU/ddahu__cold_deck_static_pressure_sensor_bias__neg0p2inwg.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cold_deck_static_pressure_sensor
+    mode: bias
+    severity: "neg0p2inwg"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_CSP_-2inwg.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+    note: "File name says -2 in.wg; inventory table gives -0.2 in.wg."
+  - case: DDAHU/ddahu__cold_deck_static_pressure_sensor_bias__neg0p4inwg.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cold_deck_static_pressure_sensor
+    mode: bias
+    severity: "neg0p4inwg"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_CSP_-4inwg.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+    note: "File name says -4 in.wg; inventory table gives -0.4 in.wg."
+  - case: DDAHU/ddahu__hot_deck_supply_temp_sensor_bias__pos2c.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: hot_deck_supply_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_HSA_+2C.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__hot_deck_supply_temp_sensor_bias__pos4c.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: hot_deck_supply_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_HSA_+4C.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__hot_deck_supply_temp_sensor_bias__neg2c.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: hot_deck_supply_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_HSA_-2C.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__hot_deck_supply_temp_sensor_bias__neg4c.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: hot_deck_supply_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_HSA_-4C.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__hot_deck_static_pressure_sensor_bias__pos0p2inwg.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: hot_deck_static_pressure_sensor
+    mode: bias
+    severity: "pos0p2inwg"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_HSP_+2inwg.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+    note: "File name says +2 in.wg; inventory table gives +0.2 in.wg."
+  - case: DDAHU/ddahu__hot_deck_static_pressure_sensor_bias__pos0p4inwg.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: hot_deck_static_pressure_sensor
+    mode: bias
+    severity: "pos0p4inwg"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_HSP_+4inwg.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+    note: "File name says +4 in.wg; inventory table gives +0.4 in.wg."
+  - case: DDAHU/ddahu__hot_deck_static_pressure_sensor_bias__neg0p2inwg.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: hot_deck_static_pressure_sensor
+    mode: bias
+    severity: "neg0p2inwg"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_HSP_-2inwg.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+    note: "File name says -2 in.wg; inventory table gives -0.2 in.wg."
+  - case: DDAHU/ddahu__hot_deck_static_pressure_sensor_bias__neg0p4inwg.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: hot_deck_static_pressure_sensor
+    mode: bias
+    severity: "neg0p4inwg"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_SensorBias_HSP_-4inwg.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+    note: "File name says -4 in.wg; inventory table gives -0.4 in.wg."
+  - case: DDAHU/ddahu__cooling_valve_stuck__0pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "0pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_VLVStuck_Cooling_0_.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cooling_valve_stuck__100pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "100pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_VLVStuck_Cooling_100_.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cooling_valve_stuck__20pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "20pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_VLVStuck_Cooling_20_.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cooling_valve_stuck__50pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "50pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_VLVStuck_Cooling_50_.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__cooling_valve_stuck__80pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "80pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_VLVStuck_Cooling_80_.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_valve_stuck__0pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_valve
+    mode: stuck
+    severity: "0pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_VLVStuck_Heating_0_.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_valve_stuck__100pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_valve
+    mode: stuck
+    severity: "100pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_VLVStuck_Heating_100_.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_valve_stuck__20pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_valve
+    mode: stuck
+    severity: "20pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_VLVStuck_Heating_20_.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_valve_stuck__50pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_valve
+    mode: stuck
+    severity: "50pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_VLVStuck_Heating_50_.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: DDAHU/ddahu__heating_valve_stuck__80pct.csv
+    system: DDAHU
+    fault_free: false
+    unit: AHU-1
+    component: heating_valve
+    mode: stuck
+    severity: "80pct"
+    twin: DDAHU/ddahu__fault_free.csv
+    twin_aligned: true
+    original_file: "DualDuct_VLVStuck_Heating_80_.csv"
+    source: "LBNL_FDD_Data_Sets_DDAHU.pdf Tables 3-4"
+  - case: FCU/fcu__cooling_control_reverse_acting.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_control
+    mode: reverse_acting
+    severity: null
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Control_CoolingReverse.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_control_reverse_acting.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_control
+    mode: reverse_acting
+    severity: null
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Control_HeatingReverse.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__control_unstable.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: control
+    mode: unstable
+    severity: null
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Control_Unstable.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__supply_fan_outlet_blockage.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: supply_fan
+    mode: outlet_blockage
+    severity: null
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_FanOutletBlockage.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__fault_free.csv
+    system: FCU
+    fault_free: true
+    original_file: "FCU_FaultFree.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__filter_restriction__10pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: filter
+    mode: restriction
+    severity: "10pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_FilterRestriction_10%.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__filter_restriction__20pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: filter
+    mode: restriction
+    severity: "20pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_FilterRestriction_20%.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__filter_restriction__50pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: filter
+    mode: restriction
+    severity: "50pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_FilterRestriction_50%.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_coil_fouling_airside__minor.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_coil
+    mode: fouling_airside
+    severity: "minor"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Cooling_Airside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_coil_fouling_airside__moderate.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_coil
+    mode: fouling_airside
+    severity: "moderate"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Cooling_Airside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_coil_fouling_airside__severe.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_coil
+    mode: fouling_airside
+    severity: "severe"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Cooling_Airside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_coil_fouling_waterside__minor.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_coil
+    mode: fouling_waterside
+    severity: "minor"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Cooling_Waterside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_coil_fouling_waterside__moderate.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_coil
+    mode: fouling_waterside
+    severity: "moderate"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Cooling_Waterside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_coil_fouling_waterside__severe.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_coil
+    mode: fouling_waterside
+    severity: "severe"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Cooling_Waterside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_coil_fouling_airside__minor.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_coil
+    mode: fouling_airside
+    severity: "minor"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Heating_Airside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_coil_fouling_airside__moderate.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_coil
+    mode: fouling_airside
+    severity: "moderate"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Heating_Airside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_coil_fouling_airside__severe.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_coil
+    mode: fouling_airside
+    severity: "severe"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Heating_Airside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_coil_fouling_waterside__minor.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_coil
+    mode: fouling_waterside
+    severity: "minor"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Heating_Waterside_Minor.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_coil_fouling_waterside__moderate.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_coil
+    mode: fouling_waterside
+    severity: "moderate"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Heating_Waterside_Moderate.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_coil_fouling_waterside__severe.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_coil
+    mode: fouling_waterside
+    severity: "severe"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_Fouling_Heating_Waterside_Severe.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__oa_inlet_blockage.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: oa_inlet
+    mode: blockage
+    severity: null
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_OABlockage.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__oa_damper_leaking__20pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: oa_damper
+    mode: leaking
+    severity: "20pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_OADMPRLeak_20.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__oa_damper_leaking__50pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: oa_damper
+    mode: leaking
+    severity: "50pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_OADMPRLeak_50.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__oa_damper_leaking__80pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: oa_damper
+    mode: leaking
+    severity: "80pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_OADMPRLeak_80.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__oa_damper_stuck__0pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: oa_damper
+    mode: stuck
+    severity: "0pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_OADMPRStuck_0.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__oa_damper_stuck__100pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: oa_damper
+    mode: stuck
+    severity: "100pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_OADMPRStuck_100.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__oa_damper_stuck__30pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: oa_damper
+    mode: stuck
+    severity: "30pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_OADMPRStuck_30.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__oa_damper_stuck__50pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: oa_damper
+    mode: stuck
+    severity: "50pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_OADMPRStuck_50.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__oa_damper_stuck__80pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: oa_damper
+    mode: stuck
+    severity: "80pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_OADMPRStuck_80.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__zone_temp_sensor_bias__pos2c.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: zone_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_SensorBias_RMTemp_+2C.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__zone_temp_sensor_bias__pos4c.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: zone_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_SensorBias_RMTemp_+4C.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__zone_temp_sensor_bias__neg2c.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: zone_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_SensorBias_RMTemp_-2C.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__zone_temp_sensor_bias__neg4c.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: zone_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_SensorBias_RMTemp_-4C.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_valve_leaking__20pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_valve
+    mode: leaking
+    severity: "20pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVLeak_Cooling_20.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+    note: "Inventory Table 3 labels this 'heating coil valve leaking'; file name and Table 2 say cooling."
+  - case: FCU/fcu__cooling_valve_leaking__50pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_valve
+    mode: leaking
+    severity: "50pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVLeak_Cooling_50.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+    note: "Inventory Table 3 labels this 'heating coil valve leaking'; file name and Table 2 say cooling."
+  - case: FCU/fcu__cooling_valve_leaking__80pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_valve
+    mode: leaking
+    severity: "80pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVLeak_Cooling_80.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+    note: "Inventory Table 3 labels this 'heating coil valve leaking'; file name and Table 2 say cooling."
+  - case: FCU/fcu__heating_valve_leaking__20pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_valve
+    mode: leaking
+    severity: "20pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVLeak_Heating_20.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_valve_leaking__50pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_valve
+    mode: leaking
+    severity: "50pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVLeak_Heating_50.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_valve_leaking__80pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_valve
+    mode: leaking
+    severity: "80pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVLeak_Heating_80.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_valve_stuck__0pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "0pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVStuck_Cooling_0.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_valve_stuck__100pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "100pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVStuck_Cooling_100.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_valve_stuck__20pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "20pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVStuck_Cooling_20.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_valve_stuck__50pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "50pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVStuck_Cooling_50.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__cooling_valve_stuck__80pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: cooling_valve
+    mode: stuck
+    severity: "80pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVStuck_Cooling_80.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_valve_stuck__0pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_valve
+    mode: stuck
+    severity: "0pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVStuck_Heating_0.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_valve_stuck__100pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_valve
+    mode: stuck
+    severity: "100pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVStuck_Heating_100.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_valve_stuck__20pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_valve
+    mode: stuck
+    severity: "20pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVStuck_Heating_20.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_valve_stuck__50pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_valve
+    mode: stuck
+    severity: "50pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVStuck_Heating_50.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: FCU/fcu__heating_valve_stuck__80pct.csv
+    system: FCU
+    fault_free: false
+    unit: FCU-1
+    component: heating_valve
+    mode: stuck
+    severity: "80pct"
+    twin: FCU/fcu__fault_free.csv
+    twin_aligned: true
+    original_file: "FCU_VLVStuck_Heating_80.csv"
+    source: "LBNL_FDD_Data_Sets_FCU.pdf Tables 2-3"
+  - case: BOILER/boiler__fault_free.csv
+    system: BOILER
+    fault_free: true
+    original_file: "BoilerPlant.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+  - case: BOILER/boiler__supply_temp_control_poor_tuning.csv
+    system: BOILER
+    fault_free: false
+    unit: HW-LOOP
+    component: supply_temp_control
+    mode: poor_tuning
+    severity: null
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_boiler_PI.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+    note: "Pump power points are NaN in this file."
+  - case: BOILER/boiler__hw_leaving_temp_sensor_bias__neg2c.csv
+    system: BOILER
+    fault_free: false
+    unit: BLR-1
+    component: hw_leaving_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_boiler_bias_-2.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+  - case: BOILER/boiler__hw_leaving_temp_sensor_bias__neg4c.csv
+    system: BOILER
+    fault_free: false
+    unit: BLR-1
+    component: hw_leaving_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_boiler_bias_-4.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+  - case: BOILER/boiler__hw_leaving_temp_sensor_bias__pos2c.csv
+    system: BOILER
+    fault_free: false
+    unit: BLR-1
+    component: hw_leaving_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_boiler_bias_2.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+  - case: BOILER/boiler__hw_leaving_temp_sensor_bias__pos4c.csv
+    system: BOILER
+    fault_free: false
+    unit: BLR-1
+    component: hw_leaving_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_boiler_bias_4.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+  - case: BOILER/boiler__heat_exchanger_fouling__65pct_ua.csv
+    system: BOILER
+    fault_free: false
+    unit: BLR-1
+    component: heat_exchanger
+    mode: fouling
+    severity: "65pct_ua"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_boiler_foul_065.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+    note: "Pump power points are NaN in this file."
+  - case: BOILER/boiler__heat_exchanger_fouling__80pct_ua.csv
+    system: BOILER
+    fault_free: false
+    unit: BLR-1
+    component: heat_exchanger
+    mode: fouling
+    severity: "80pct_ua"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_boiler_foul_080.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+    note: "Pump power points are NaN in this file."
+  - case: BOILER/boiler__heat_exchanger_fouling__95pct_ua.csv
+    system: BOILER
+    fault_free: false
+    unit: BLR-1
+    component: heat_exchanger
+    mode: fouling
+    severity: "95pct_ua"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_boiler_foul_095.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+    note: "Pump power points are NaN in this file."
+  - case: BOILER/boiler__dp_sensor_bias__neg10pct.csv
+    system: BOILER
+    fault_free: false
+    unit: HW-LOOP
+    component: dp_sensor
+    mode: bias
+    severity: "neg10pct"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_hot_water_pressure_bias_-10.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+  - case: BOILER/boiler__dp_sensor_bias__neg20pct.csv
+    system: BOILER
+    fault_free: false
+    unit: HW-LOOP
+    component: dp_sensor
+    mode: bias
+    severity: "neg20pct"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_hot_water_pressure_bias_-20.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+  - case: BOILER/boiler__dp_sensor_bias__pos10pct.csv
+    system: BOILER
+    fault_free: false
+    unit: HW-LOOP
+    component: dp_sensor
+    mode: bias
+    severity: "pos10pct"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_hot_water_pressure_bias_10.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+  - case: BOILER/boiler__dp_sensor_bias__pos20pct.csv
+    system: BOILER
+    fault_free: false
+    unit: HW-LOOP
+    component: dp_sensor
+    mode: bias
+    severity: "pos20pct"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_hot_water_pressure_bias_20.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+  - case: BOILER/boiler__hw_supply_temp_sensor_bias__neg2c.csv
+    system: BOILER
+    fault_free: false
+    unit: HW-LOOP
+    component: hw_supply_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_hot_water_temp_bias_-2.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+    note: "Pump power points are NaN in this file."
+  - case: BOILER/boiler__hw_supply_temp_sensor_bias__neg4c.csv
+    system: BOILER
+    fault_free: false
+    unit: HW-LOOP
+    component: hw_supply_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_hot_water_temp_bias_-4.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+    note: "Pump power points are NaN in this file."
+  - case: BOILER/boiler__hw_supply_temp_sensor_bias__pos2c.csv
+    system: BOILER
+    fault_free: false
+    unit: HW-LOOP
+    component: hw_supply_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_hot_water_temp_bias_2.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+    note: "Pump power points are NaN in this file."
+  - case: BOILER/boiler__hw_supply_temp_sensor_bias__pos4c.csv
+    system: BOILER
+    fault_free: false
+    unit: HW-LOOP
+    component: hw_supply_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: BOILER/boiler__fault_free.csv
+    twin_aligned: true
+    original_file: "BoilerPlant_hot_water_temp_bias_4.csv"
+    source: "LBNL_FDD_Data_Sets_Boiler_Plant.pdf Tables 3-4"
+    note: "Pump power points are NaN in this file."
+  - case: CHILLER/chiller__fault_free.csv
+    system: CHILLER
+    fault_free: true
+    original_file: "ChillerPlant.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__bypass_valve_leaking__25pct.csv
+    system: CHILLER
+    fault_free: false
+    unit: CW-LOOP
+    component: bypass_valve
+    mode: leaking
+    severity: "25pct"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_bypass_leakage_025.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Three-way valve on the condenser water loop."
+  - case: CHILLER/chiller__bypass_valve_leaking__50pct.csv
+    system: CHILLER
+    fault_free: false
+    unit: CW-LOOP
+    component: bypass_valve
+    mode: leaking
+    severity: "50pct"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_bypass_leakage_050.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Three-way valve on the condenser water loop."
+  - case: CHILLER/chiller__bypass_valve_leaking__75pct.csv
+    system: CHILLER
+    fault_free: false
+    unit: CW-LOOP
+    component: bypass_valve
+    mode: leaking
+    severity: "75pct"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_bypass_leakage_075.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Three-way valve on the condenser water loop."
+  - case: CHILLER/chiller__bypass_valve_stuck__50pct.csv
+    system: CHILLER
+    fault_free: false
+    unit: CW-LOOP
+    component: bypass_valve
+    mode: stuck
+    severity: "50pct"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_bypass_stuck_050.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Three-way valve on the condenser water loop."
+  - case: CHILLER/chiller__bypass_valve_stuck__75pct.csv
+    system: CHILLER
+    fault_free: false
+    unit: CW-LOOP
+    component: bypass_valve
+    mode: stuck
+    severity: "75pct"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_bypass_stuck_075.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Three-way valve on the condenser water loop."
+  - case: CHILLER/chiller__chw_leaving_temp_sensor_bias__neg1c.csv
+    system: CHILLER
+    fault_free: false
+    unit: CH-1
+    component: chw_leaving_temp_sensor
+    mode: bias
+    severity: "neg1c"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_chiller_bias_-1.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__chw_leaving_temp_sensor_bias__neg2c.csv
+    system: CHILLER
+    fault_free: false
+    unit: CH-1
+    component: chw_leaving_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_chiller_bias_-2.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__chw_leaving_temp_sensor_bias__pos1c.csv
+    system: CHILLER
+    fault_free: false
+    unit: CH-1
+    component: chw_leaving_temp_sensor
+    mode: bias
+    severity: "pos1c"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_chiller_bias_1.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__chw_leaving_temp_sensor_bias__pos2c.csv
+    system: CHILLER
+    fault_free: false
+    unit: CH-1
+    component: chw_leaving_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_chiller_bias_2.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__chiller_heat_exchanger_fouling__65pct_ua.csv
+    system: CHILLER
+    fault_free: false
+    unit: CH-1
+    component: chiller_heat_exchanger
+    mode: fouling
+    severity: "65pct_ua"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_chiller_fouling_065.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Not in the LBNL inventory; label inferred from the file name."
+  - case: CHILLER/chiller__chiller_heat_exchanger_fouling__95pct_ua.csv
+    system: CHILLER
+    fault_free: false
+    unit: CH-1
+    component: chiller_heat_exchanger
+    mode: fouling
+    severity: "95pct_ua"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_chiller_fouling_095.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Not in the LBNL inventory; label inferred from the file name."
+  - case: CHILLER/chiller__supply_temp_control_poor_tuning.csv
+    system: CHILLER
+    fault_free: false
+    unit: CW-LOOP
+    component: supply_temp_control
+    mode: poor_tuning
+    severity: null
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_coolingtower_PI.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__cw_leaving_temp_sensor_bias__neg1c.csv
+    system: CHILLER
+    fault_free: false
+    unit: CT-1
+    component: cw_leaving_temp_sensor
+    mode: bias
+    severity: "neg1c"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_coolingtower_bias_-1.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__cw_leaving_temp_sensor_bias__neg2c.csv
+    system: CHILLER
+    fault_free: false
+    unit: CT-1
+    component: cw_leaving_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_coolingtower_bias_-2.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__cw_leaving_temp_sensor_bias__pos1c.csv
+    system: CHILLER
+    fault_free: false
+    unit: CT-1
+    component: cw_leaving_temp_sensor
+    mode: bias
+    severity: "pos1c"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_coolingtower_bias_1.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__cw_leaving_temp_sensor_bias__pos2c.csv
+    system: CHILLER
+    fault_free: false
+    unit: CT-1
+    component: cw_leaving_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_coolingtower_bias_2.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__tower_heat_exchanger_fouling__65pct_ua.csv
+    system: CHILLER
+    fault_free: false
+    unit: CT-1
+    component: tower_heat_exchanger
+    mode: fouling
+    severity: "65pct_ua"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_coolingtower_fouling_065.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__tower_heat_exchanger_fouling__80pct_ua.csv
+    system: CHILLER
+    fault_free: false
+    unit: CT-1
+    component: tower_heat_exchanger
+    mode: fouling
+    severity: "80pct_ua"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_coolingtower_fouling_080.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__tower_heat_exchanger_fouling__95pct_ua.csv
+    system: CHILLER
+    fault_free: false
+    unit: CT-1
+    component: tower_heat_exchanger
+    mode: fouling
+    severity: "95pct_ua"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_coolingtower_fouling_095.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+  - case: CHILLER/chiller__dp_sensor_bias__neg10pct.csv
+    system: CHILLER
+    fault_free: false
+    unit: CHW-LOOP
+    component: dp_sensor
+    mode: bias
+    severity: "neg10pct"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_secondary_chilled_water_pressure_bias_-010.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Secondary chilled water loop."
+  - case: CHILLER/chiller__dp_sensor_bias__neg20pct.csv
+    system: CHILLER
+    fault_free: false
+    unit: CHW-LOOP
+    component: dp_sensor
+    mode: bias
+    severity: "neg20pct"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_secondary_chilled_water_pressure_bias_-020.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Secondary chilled water loop."
+  - case: CHILLER/chiller__dp_sensor_bias__pos10pct.csv
+    system: CHILLER
+    fault_free: false
+    unit: CHW-LOOP
+    component: dp_sensor
+    mode: bias
+    severity: "pos10pct"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_secondary_chilled_water_pressure_bias_010.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Secondary chilled water loop."
+  - case: CHILLER/chiller__dp_sensor_bias__pos20pct.csv
+    system: CHILLER
+    fault_free: false
+    unit: CHW-LOOP
+    component: dp_sensor
+    mode: bias
+    severity: "pos20pct"
+    twin: CHILLER/chiller__fault_free.csv
+    twin_aligned: true
+    original_file: "ChillerPlant_secondary_chilled_water_pressure_bias_020.csv"
+    source: "LBNL_FDD_Data_Sets_Chiller_Plant.pdf Tables 3-4"
+    note: "Secondary chilled water loop."
+  - case: RTU_SIM/rtu_sim__fault_free.csv
+    system: RTU_SIM
+    fault_free: true
+    original_file: "RTU_sim_baseline.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__condenser_fouling__10pct_airflow.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: condenser
+    mode: fouling
+    severity: "10pct_airflow"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_condfouling10.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__condenser_fouling__20pct_airflow.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: condenser
+    mode: fouling
+    severity: "20pct_airflow"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_condfouling20.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__condenser_fouling__30pct_airflow.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: condenser
+    mode: fouling
+    severity: "30pct_airflow"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_condfouling30.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__condenser_fouling__40pct_airflow.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: condenser
+    mode: fouling
+    severity: "40pct_airflow"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_condfouling40.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__condenser_fouling__50pct_airflow.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: condenser
+    mode: fouling
+    severity: "50pct_airflow"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_condfouling50.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__evaporator_fouling__10pct_airflow.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: evaporator
+    mode: fouling
+    severity: "10pct_airflow"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_evapfouling10.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__evaporator_fouling__20pct_airflow.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: evaporator
+    mode: fouling
+    severity: "20pct_airflow"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_evapfouling20.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__evaporator_fouling__30pct_airflow.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: evaporator
+    mode: fouling
+    severity: "30pct_airflow"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_evapfouling30.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__evaporator_fouling__40pct_airflow.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: evaporator
+    mode: fouling
+    severity: "40pct_airflow"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_evapfouling40.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__evaporator_fouling__50pct_airflow.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: evaporator
+    mode: fouling
+    severity: "50pct_airflow"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_evapfouling50.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__liquid_line_restriction__1bar.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: liquid_line
+    mode: restriction
+    severity: "1bar"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_liquidpipe01bar.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__liquid_line_restriction__4bar.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: liquid_line
+    mode: restriction
+    severity: "4bar"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_liquidpipe04bar.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__liquid_line_restriction__8bar.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: liquid_line
+    mode: restriction
+    severity: "8bar"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_liquidpipe08bar.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__liquid_line_restriction__10bar.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: liquid_line
+    mode: restriction
+    severity: "10bar"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_liquidpipe10bar.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__refrigerant_overcharge__10pct.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: refrigerant
+    mode: overcharge
+    severity: "10pct"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_overcharge10.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__refrigerant_overcharge__15pct.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: refrigerant
+    mode: overcharge
+    severity: "15pct"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_overcharge15.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__refrigerant_overcharge__20pct.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: refrigerant
+    mode: overcharge
+    severity: "20pct"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_overcharge20.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__suction_line_restriction__1bar.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: suction_line
+    mode: restriction
+    severity: "1bar"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_suctionpipe01bar.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__suction_line_restriction__3bar.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: suction_line
+    mode: restriction
+    severity: "3bar"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_suctionpipe03bar.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__suction_line_restriction__6bar.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: suction_line
+    mode: restriction
+    severity: "6bar"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_suctionpipe06bar.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__suction_line_restriction__9bar.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: suction_line
+    mode: restriction
+    severity: "9bar"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_suctionpipe09bar.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__refrigerant_undercharge__10pct.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: refrigerant
+    mode: undercharge
+    severity: "10pct"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_undercharge10.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__refrigerant_undercharge__15pct.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: refrigerant
+    mode: undercharge
+    severity: "15pct"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_undercharge15.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_SIM/rtu_sim__refrigerant_undercharge__20pct.csv
+    system: RTU_SIM
+    fault_free: false
+    unit: RTU-1
+    component: refrigerant
+    mode: undercharge
+    severity: "20pct"
+    twin: RTU_SIM/rtu_sim__fault_free.csv
+    twin_aligned: true
+    original_file: "RTU_sim_undercharge20.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables S4-S5"
+  - case: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: true
+    original_file: "ERTU_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+  - case: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: true
+    original_file: "ERTU_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+  - case: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: true
+    original_file: "ERTU_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+  - case: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: true
+    original_file: "ERTU_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__neg2c__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "neg2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_-2_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__neg2c__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "neg2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_-2_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__neg2c__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "neg2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_-2_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__neg2c__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "neg2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_-2_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__neg4c__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "neg4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_-4_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__neg4c__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "neg4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_-4_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__neg4c__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "neg4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_-4_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__neg4c__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "neg4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_-4_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__pos2c__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "pos2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_2_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__pos2c__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "pos2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_2_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__pos2c__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "pos2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_2_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__pos2c__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "pos2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_2_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__pos4c__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "pos4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_4_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__pos4c__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "pos4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_4_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__pos4c__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "pos4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_4_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__economizer_setpoint_incorrect__pos4c__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: economizer_setpoint
+    mode: incorrect
+    severity: "pos4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "Inc_Eco_SP_4_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__5pct__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "5pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_005_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__5pct__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "5pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_005_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__5pct__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "5pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_005_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__5pct__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "5pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_005_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__10pct__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "10pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_010_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__10pct__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "10pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_010_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__10pct__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "10pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_010_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__10pct__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "10pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_010_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__50pct__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "50pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_050_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__50pct__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "50pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_050_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__50pct__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "50pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_050_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__50pct__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "50pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_050_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__100pct__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "100pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_100_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__100pct__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "100pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_100_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__100pct__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "100pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_100_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__oa_damper_stuck__100pct__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: oa_damper
+    mode: stuck
+    severity: "100pct"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "OA_damper_stuck_100_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__neg2c__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_-2_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__neg2c__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_-2_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__neg2c__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_-2_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__neg2c__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "neg2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_-2_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__neg4c__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_-4_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__neg4c__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_-4_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__neg4c__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_-4_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__neg4c__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "neg4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_-4_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__pos2c__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_2_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__pos2c__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_2_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__pos2c__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_2_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__pos2c__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "pos2c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_2_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__pos4c__fall_2020.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__fall_2020.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_4_Fall_2020.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__pos4c__spring_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__spring_2021.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_4_Spring_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__pos4c__summer_2021.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__summer_2021.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_4_Summer_2021.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_ORNL/rtu_ornl__supply_air_temp_sensor_bias__pos4c__winter_2022.csv
+    system: RTU_ORNL
+    fault_free: false
+    unit: RTU-1
+    component: supply_air_temp_sensor
+    mode: bias
+    severity: "pos4c"
+    twin: RTU_ORNL/rtu_ornl__fault_free__winter_2022.csv
+    twin_aligned: false
+    original_file: "SA_temp_bias_4_Winter_2022.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables E2-E3"
+    note: "Lab test at ORNL: one day of faulted operation; twin is other days of the same season."
+  - case: RTU_FIELD/rtu_field__compressor_staging_control_stage2_fails__site1.csv
+    system: RTU_FIELD
+    fault_free: false
+    unit: RTU-1
+    component: compressor_staging_control
+    mode: stage2_fails
+    severity: null
+    twin: RTU_FIELD/rtu_field__fault_free__site1.csv
+    twin_aligned: false
+    original_file: "Site1_Staging_Fault.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables F2-F3"
+    note: "Field data, Milford CT. Twin is a later, non-overlapping period."
+  - case: RTU_FIELD/rtu_field__fault_free__site1.csv
+    system: RTU_FIELD
+    fault_free: true
+    original_file: "Site1_Unfaulted.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables F2-F3"
+  - case: RTU_FIELD/rtu_field__refrigerant_undercharge__40pct__site2.csv
+    system: RTU_FIELD
+    fault_free: false
+    unit: RTU-1
+    component: refrigerant
+    mode: undercharge
+    severity: "40pct"
+    twin: RTU_FIELD/rtu_field__fault_free__site2.csv
+    twin_aligned: false
+    original_file: "Site2_Undercharged40.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables F2-F3"
+    note: "Field data, Colchester CT, circuit B. Twin is a later, non-overlapping period."
+  - case: RTU_FIELD/rtu_field__fault_free__site2.csv
+    system: RTU_FIELD
+    fault_free: true
+    original_file: "Site2_Unfaulted.csv"
+    source: "LBNL_FDD_Data_Sets_RTU.pdf Tables F2-F3"

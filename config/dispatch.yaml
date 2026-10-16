@@ -1,0 +1,32 @@
+# When an Incident is persistent enough to send someone (see ADR-0006).
+# Persistence is judged as of a date, over the lookback window before it.
+
+lookback_days: 14
+
+# Peer comparison for units with identical siblings: count only fault minutes above the
+# "worst" sibling (the box must stand out from all of them) or the "median" sibling.
+# "median" flagged healthy boxes most months on the VAV systems: real zones differ.
+peer_baseline: worst
+
+# A day counts as a fault day when an Incident's confirmed fault time that day reaches this.
+fault_day_min_minutes: 60
+
+persistence:
+  # Continuous: fault present for at least this share of operating hours in the lookback.
+  continuous_min_share_of_operating_hours: 0.50
+  # Daily: at least this many fault days in the lookback.
+  daily_min_fault_days: 7
+  # Weekly: faulted in every week of the lookback, on fewer days than "daily".
+  weekly_requires_every_week: true
+  # Stale: no fault day in this many most-recent days -> close the Incident.
+  # 9 days keeps an every-Monday problem (7-day gap) from closing between occurrences.
+  stale_after_days: 9
+
+# Which patterns lead to a Work Order; the rest go to the Watch List (or close, if stale).
+dispatch: [continuous, daily, weekly]
+
+# Diagnosis caution: dispatch only when the signature model's probability that the
+# Incident is noise ("none") is below this. Lower = fewer false dispatches, more missed
+# faults. On the VAV development set (held-out cases): 0.3 -> 50% of faults caught, 0
+# false dispatches; 0.5 -> 67% caught, ~15 per 100 box-months; 0.7 -> 97%, ~26.
+none_threshold: 0.5

@@ -1,0 +1,553 @@
+# Reference Mapping for PFPU: the answer key for the tagging agent.
+# Drafted by Claude from the LBNL point descriptions (data/lbnl/docs/LBNL_FDD_Data_Sets_FPU.pdf,
+# Table 1); spot-check before relying on it. Tags use flat Project Haystack style.
+# The tagging agent never sees desc/units; it works from raw names and data only.
+system: PFPU
+timestamp: {column: "Datetime", format: "%m/%d/%Y %H:%M"}
+units:
+  AHU-1: {type: ahu}
+  VAV-I: {type: vav-parallel, ahuRef: AHU-1}
+  VAV-W: {type: vav-parallel, ahuRef: AHU-1}
+  VAV-S: {type: vav-parallel, ahuRef: AHU-1}
+  VAV-E: {type: vav-parallel, ahuRef: AHU-1}
+points:
+  "RM_TEMP_I":
+    desc: "Room temperature (zone I)"
+    units: "°F"
+    unit: VAV-I
+    tags: [zone, air, temp, sensor]
+  "RMCLGSPT_I":
+    desc: "Room cooling setpoint (zone I)"
+    units: "°F"
+    unit: VAV-I
+    tags: [zone, air, temp, cooling, sp]
+  "RMHTGSPT_I":
+    desc: "Room heating setpoint (zone I)"
+    units: "°F"
+    unit: VAV-I
+    tags: [zone, air, temp, heating, sp]
+  "RH_VLV_I":
+    desc: "Reheating coil valve position (zone I)"
+    units: "0-1"
+    unit: VAV-I
+    tags: [hot-water, reheat, valve, sensor]
+  "RH_VLV_DM_I":
+    desc: "Reheating coil valve command (zone I)"
+    units: "0-1"
+    unit: VAV-I
+    tags: [hot-water, reheat, valve, cmd]
+  "RH_GPM_I":
+    desc: "Reheating coil water flow rate (zone I)"
+    units: "GPM"
+    unit: VAV-I
+    tags: [hot-water, reheat, flow, sensor]
+  "RH_EWT_I":
+    desc: "Reheating coil entering water temperature (zone I)"
+    units: "°F"
+    unit: VAV-I
+    tags: [hot-water, reheat, entering, temp, sensor]
+  "RH_LWT_I":
+    desc: "Reheating coil leaving water temperature (zone I)"
+    units: "°F"
+    unit: VAV-I
+    tags: [hot-water, reheat, leaving, temp, sensor]
+  "VAV_DAT_I":
+    desc: "VAV discharge air temperature (zone I)"
+    units: "°F"
+    unit: VAV-I
+    tags: [discharge, air, temp, sensor]
+  "VAV_DMPR_I":
+    desc: "VAV damper position (zone I)"
+    units: "0-1"
+    unit: VAV-I
+    tags: [damper, sensor]
+  "VAV_PM_CFM_SP_I":
+    desc: "VAV primary air flow rate setpoint (zone I)"
+    units: "CFM"
+    unit: VAV-I
+    tags: [air, flow, sp]
+  "VAV_PM_CFM_I":
+    desc: "VAV primary air flow rate (zone I)"
+    units: "CFM"
+    unit: VAV-I
+    tags: [air, flow, sensor]
+  "VAV_DA_CFM_I":
+    desc: "VAV discharge air flow rate (zone I)"
+    units: "CFM"
+    unit: VAV-I
+    tags: [discharge, air, flow, sensor]
+  "VAV_FAN_CS_I":
+    desc: "VAV fan status (0 off, 1 on) (zone I)"
+    units: "-"
+    unit: VAV-I
+    tags: [fan, run, sensor]
+  "VAV_FAN_DP_I":
+    desc: "VAV fan differential pressure (zone I)"
+    units: "in.w.g."
+    unit: VAV-I
+    tags: [fan, delta, pressure, sensor]
+  "VAV_FAN_WAT_I":
+    desc: "VAV fan power (zone I)"
+    units: "W"
+    unit: VAV-I
+    tags: [fan, elec, power, sensor]
+  "RM_TEMP_W":
+    desc: "Room temperature (zone W)"
+    units: "°F"
+    unit: VAV-W
+    tags: [zone, air, temp, sensor]
+  "RMCLGSPT_W":
+    desc: "Room cooling setpoint (zone W)"
+    units: "°F"
+    unit: VAV-W
+    tags: [zone, air, temp, cooling, sp]
+  "RMHTGSPT_W":
+    desc: "Room heating setpoint (zone W)"
+    units: "°F"
+    unit: VAV-W
+    tags: [zone, air, temp, heating, sp]
+  "RH_VLV_W":
+    desc: "Reheating coil valve position (zone W)"
+    units: "0-1"
+    unit: VAV-W
+    tags: [hot-water, reheat, valve, sensor]
+  "RH_VLV_DM_W":
+    desc: "Reheating coil valve command (zone W)"
+    units: "0-1"
+    unit: VAV-W
+    tags: [hot-water, reheat, valve, cmd]
+  "RH_GPM_W":
+    desc: "Reheating coil water flow rate (zone W)"
+    units: "GPM"
+    unit: VAV-W
+    tags: [hot-water, reheat, flow, sensor]
+  "RH_EWT_W":
+    desc: "Reheating coil entering water temperature (zone W)"
+    units: "°F"
+    unit: VAV-W
+    tags: [hot-water, reheat, entering, temp, sensor]
+  "RH_LWT_W":
+    desc: "Reheating coil leaving water temperature (zone W)"
+    units: "°F"
+    unit: VAV-W
+    tags: [hot-water, reheat, leaving, temp, sensor]
+  "VAV_DAT_W":
+    desc: "VAV discharge air temperature (zone W)"
+    units: "°F"
+    unit: VAV-W
+    tags: [discharge, air, temp, sensor]
+  "VAV_DMPR_W":
+    desc: "VAV damper position (zone W)"
+    units: "0-1"
+    unit: VAV-W
+    tags: [damper, sensor]
+  "VAV_PM_CFM_SP_W":
+    desc: "VAV primary air flow rate setpoint (zone W)"
+    units: "CFM"
+    unit: VAV-W
+    tags: [air, flow, sp]
+  "VAV_PM_CFM_W":
+    desc: "VAV primary air flow rate (zone W)"
+    units: "CFM"
+    unit: VAV-W
+    tags: [air, flow, sensor]
+  "VAV_DA_CFM_W":
+    desc: "VAV discharge air flow rate (zone W)"
+    units: "CFM"
+    unit: VAV-W
+    tags: [discharge, air, flow, sensor]
+  "VAV_FAN_CS_W":
+    desc: "VAV fan status (0 off, 1 on) (zone W)"
+    units: "-"
+    unit: VAV-W
+    tags: [fan, run, sensor]
+  "VAV_FAN_DP_W":
+    desc: "VAV fan differential pressure (zone W)"
+    units: "in.w.g."
+    unit: VAV-W
+    tags: [fan, delta, pressure, sensor]
+  "VAV_FAN_WAT_W":
+    desc: "VAV fan power (zone W)"
+    units: "W"
+    unit: VAV-W
+    tags: [fan, elec, power, sensor]
+  "RM_TEMP_S":
+    desc: "Room temperature (zone S)"
+    units: "°F"
+    unit: VAV-S
+    tags: [zone, air, temp, sensor]
+  "RMCLGSPT_S":
+    desc: "Room cooling setpoint (zone S)"
+    units: "°F"
+    unit: VAV-S
+    tags: [zone, air, temp, cooling, sp]
+  "RMHTGSPT_S":
+    desc: "Room heating setpoint (zone S)"
+    units: "°F"
+    unit: VAV-S
+    tags: [zone, air, temp, heating, sp]
+  "RH_VLV_S":
+    desc: "Reheating coil valve position (zone S)"
+    units: "0-1"
+    unit: VAV-S
+    tags: [hot-water, reheat, valve, sensor]
+  "RH_VLV_DM_S":
+    desc: "Reheating coil valve command (zone S)"
+    units: "0-1"
+    unit: VAV-S
+    tags: [hot-water, reheat, valve, cmd]
+  "RH_GPM_S":
+    desc: "Reheating coil water flow rate (zone S)"
+    units: "GPM"
+    unit: VAV-S
+    tags: [hot-water, reheat, flow, sensor]
+  "RH_EWT_S":
+    desc: "Reheating coil entering water temperature (zone S)"
+    units: "°F"
+    unit: VAV-S
+    tags: [hot-water, reheat, entering, temp, sensor]
+  "RH_LWT_S":
+    desc: "Reheating coil leaving water temperature (zone S)"
+    units: "°F"
+    unit: VAV-S
+    tags: [hot-water, reheat, leaving, temp, sensor]
+  "VAV_DAT_S":
+    desc: "VAV discharge air temperature (zone S)"
+    units: "°F"
+    unit: VAV-S
+    tags: [discharge, air, temp, sensor]
+  "VAV_DMPR_S":
+    desc: "VAV damper position (zone S)"
+    units: "0-1"
+    unit: VAV-S
+    tags: [damper, sensor]
+  "VAV_PM_CFM_SP_S":
+    desc: "VAV primary air flow rate setpoint (zone S)"
+    units: "CFM"
+    unit: VAV-S
+    tags: [air, flow, sp]
+  "VAV_PM_CFM_S":
+    desc: "VAV primary air flow rate (zone S)"
+    units: "CFM"
+    unit: VAV-S
+    tags: [air, flow, sensor]
+  "VAV_DA_CFM_S":
+    desc: "VAV discharge air flow rate (zone S)"
+    units: "CFM"
+    unit: VAV-S
+    tags: [discharge, air, flow, sensor]
+  "VAV_FAN_CS_S":
+    desc: "VAV fan status (0 off, 1 on) (zone S)"
+    units: "-"
+    unit: VAV-S
+    tags: [fan, run, sensor]
+  "VAV_FAN_DP_S":
+    desc: "VAV fan differential pressure (zone S)"
+    units: "in.w.g."
+    unit: VAV-S
+    tags: [fan, delta, pressure, sensor]
+  "VAV_FAN_WAT_S":
+    desc: "VAV fan power (zone S)"
+    units: "W"
+    unit: VAV-S
+    tags: [fan, elec, power, sensor]
+  "RM_TEMP_E":
+    desc: "Room temperature (zone E)"
+    units: "°F"
+    unit: VAV-E
+    tags: [zone, air, temp, sensor]
+  "RMCLGSPT_E":
+    desc: "Room cooling setpoint (zone E)"
+    units: "°F"
+    unit: VAV-E
+    tags: [zone, air, temp, cooling, sp]
+  "RMHTGSPT_E":
+    desc: "Room heating setpoint (zone E)"
+    units: "°F"
+    unit: VAV-E
+    tags: [zone, air, temp, heating, sp]
+  "RH_VLV_E":
+    desc: "Reheating coil valve position (zone E)"
+    units: "0-1"
+    unit: VAV-E
+    tags: [hot-water, reheat, valve, sensor]
+  "RH_VLV_DM_E":
+    desc: "Reheating coil valve command (zone E)"
+    units: "0-1"
+    unit: VAV-E
+    tags: [hot-water, reheat, valve, cmd]
+  "RH_GPM_E":
+    desc: "Reheating coil water flow rate (zone E)"
+    units: "GPM"
+    unit: VAV-E
+    tags: [hot-water, reheat, flow, sensor]
+  "RH_EWT_E":
+    desc: "Reheating coil entering water temperature (zone E)"
+    units: "°F"
+    unit: VAV-E
+    tags: [hot-water, reheat, entering, temp, sensor]
+  "RH_LWT_E":
+    desc: "Reheating coil leaving water temperature (zone E)"
+    units: "°F"
+    unit: VAV-E
+    tags: [hot-water, reheat, leaving, temp, sensor]
+  "VAV_DAT_E":
+    desc: "VAV discharge air temperature (zone E)"
+    units: "°F"
+    unit: VAV-E
+    tags: [discharge, air, temp, sensor]
+  "VAV_DMPR_E":
+    desc: "VAV damper position (zone E)"
+    units: "0-1"
+    unit: VAV-E
+    tags: [damper, sensor]
+  "VAV_PM_CFM_SP_E":
+    desc: "VAV primary air flow rate setpoint (zone E)"
+    units: "CFM"
+    unit: VAV-E
+    tags: [air, flow, sp]
+  "VAV_PM_CFM_E":
+    desc: "VAV primary air flow rate (zone E)"
+    units: "CFM"
+    unit: VAV-E
+    tags: [air, flow, sensor]
+  "VAV_DA_CFM_E":
+    desc: "VAV discharge air flow rate (zone E)"
+    units: "CFM"
+    unit: VAV-E
+    tags: [discharge, air, flow, sensor]
+  "VAV_FAN_CS_E":
+    desc: "VAV fan status (0 off, 1 on) (zone E)"
+    units: "-"
+    unit: VAV-E
+    tags: [fan, run, sensor]
+  "VAV_FAN_DP_E":
+    desc: "VAV fan differential pressure (zone E)"
+    units: "in.w.g."
+    unit: VAV-E
+    tags: [fan, delta, pressure, sensor]
+  "VAV_FAN_WAT_E":
+    desc: "VAV fan power (zone E)"
+    units: "W"
+    unit: VAV-E
+    tags: [fan, elec, power, sensor]
+  "SYS_CTL":
+    desc: "System mode (0 shutdown, 1 operate, 2 setback)"
+    units: "-"
+    unit: AHU-1
+    tags: [hvacMode, sensor]
+  "OA_CFM":
+    desc: "Outdoor air flow rate"
+    units: "CFM"
+    unit: AHU-1
+    tags: [outside, air, flow, sensor]
+  "OA_DMPR":
+    desc: "Outdoor air damper position"
+    units: "0-1"
+    unit: AHU-1
+    tags: [outside, air, damper, sensor]
+  "OA_DMPR_DM":
+    desc: "Outdoor air damper command"
+    units: "0-1"
+    unit: AHU-1
+    tags: [outside, air, damper, cmd]
+  "OA_HUMD":
+    desc: "Outdoor air humidity"
+    units: "%RH"
+    unit: AHU-1
+    tags: [outside, air, humidity, sensor]
+  "OA_TEMP":
+    desc: "Outdoor air temperature"
+    units: "°F"
+    unit: AHU-1
+    tags: [outside, air, temp, sensor]
+  "MA_TEMP":
+    desc: "Mixed air temperature"
+    units: "°F"
+    unit: AHU-1
+    tags: [mixed, air, temp, sensor]
+  "RA_CFM":
+    desc: "Recirculated air flow rate"
+    units: "CFM"
+    unit: AHU-1
+    tags: [return, air, flow, sensor]
+  "RA_DMPR":
+    desc: "Recirculated air damper position"
+    units: "0-1"
+    unit: AHU-1
+    tags: [return, air, damper, sensor]
+  "RA_DMPR_DM":
+    desc: "Recirculated air damper command"
+    units: "0-1"
+    unit: AHU-1
+    tags: [return, air, damper, cmd]
+  "RA_HUMD":
+    desc: "Return air humidity"
+    units: "%RH"
+    unit: AHU-1
+    tags: [return, air, humidity, sensor]
+  "RA_TEMP":
+    desc: "Return air temperature"
+    units: "°F"
+    unit: AHU-1
+    tags: [return, air, temp, sensor]
+  "RF%SFSPD":
+    desc: "Return fan % of supply fan speed"
+    units: "0-1"
+    exclude: "derived ratio; moves identically with RF_SPD (r=1.00), so it adds nothing"
+  "RF_DP":
+    desc: "Return fan differential pressure"
+    units: "in.w.g."
+    unit: AHU-1
+    tags: [return, fan, delta, pressure, sensor]
+  "RF_SPD":
+    desc: "Return fan VFD speed"
+    units: "0-1"
+    unit: AHU-1
+    tags: [return, fan, speed, sensor]
+  "RF_WAT":
+    desc: "Return fan power"
+    units: "W"
+    unit: AHU-1
+    tags: [return, fan, elec, power, sensor]
+  "EA_DMPR":
+    desc: "Exhaust air damper position"
+    units: "0-1"
+    unit: AHU-1
+    tags: [exhaust, air, damper, sensor]
+  "EA_DMPR_DM":
+    desc: "Exhaust air damper command"
+    units: "0-1"
+    unit: AHU-1
+    tags: [exhaust, air, damper, cmd]
+  "SA_SPSPT":
+    desc: "Supply air duct static pressure setpoint"
+    units: "in.w.g."
+    unit: AHU-1
+    tags: [discharge, air, pressure, sp]
+  "SA_SP":
+    desc: "Supply air duct static pressure"
+    units: "in.w.g."
+    unit: AHU-1
+    tags: [discharge, air, pressure, sensor]
+  "SA_HUMD":
+    desc: "Supply air humidity"
+    units: "%RH"
+    unit: AHU-1
+    tags: [discharge, air, humidity, sensor]
+  "SA_CFM":
+    desc: "Supply air flow rate"
+    units: "CFM"
+    unit: AHU-1
+    tags: [discharge, air, flow, sensor]
+  "SA_TEMPSPT":
+    desc: "Supply air temperature setpoint"
+    units: "°F"
+    unit: AHU-1
+    tags: [discharge, air, temp, sp]
+  "SA_TEMP":
+    desc: "Supply air temperature"
+    units: "°F"
+    unit: AHU-1
+    tags: [discharge, air, temp, sensor]
+  "SF_CS":
+    desc: "Supply fan status (0 off, 1 on)"
+    units: "-"
+    unit: AHU-1
+    tags: [discharge, fan, run, sensor]
+  "SF_DP":
+    desc: "Supply fan differential pressure"
+    units: "in.w.g."
+    unit: AHU-1
+    tags: [discharge, fan, delta, pressure, sensor]
+  "SF_SPD":
+    desc: "Supply fan VFD speed"
+    units: "0-1"
+    unit: AHU-1
+    tags: [discharge, fan, speed, sensor]
+  "SF_WAT":
+    desc: "Supply fan power"
+    units: "W"
+    unit: AHU-1
+    tags: [discharge, fan, elec, power, sensor]
+  "HWC_DAT":
+    desc: "Heating coil discharge air temperature"
+    units: "°F"
+    unit: AHU-1
+    tags: [heating, coil, leaving, air, temp, sensor]
+  "HWC_EWT":
+    desc: "Heating coil entering water temperature"
+    units: "°F"
+    unit: AHU-1
+    tags: [hot-water, coil, entering, temp, sensor]
+  "HWC_LWT":
+    desc: "Heating coil leaving water temperature"
+    units: "°F"
+    unit: AHU-1
+    tags: [hot-water, coil, leaving, temp, sensor]
+  "HWC_MWT":
+    desc: "Heating coil mixed water temperature"
+    units: "°F"
+    exclude: "simulation internal (mixed water temperature inside the coil circuit); not a field point"
+  "HWC_VLV":
+    desc: "Heating coil valve position"
+    units: "0-1"
+    unit: AHU-1
+    tags: [hot-water, valve, sensor]
+  "HWC_VLV_DM":
+    desc: "Heating coil valve command"
+    units: "0-1"
+    unit: AHU-1
+    tags: [hot-water, valve, cmd]
+  "HWP_GPMC":
+    desc: "Heating water pump flow through coil"
+    units: "GPM"
+    unit: AHU-1
+    tags: [hot-water, coil, flow, sensor]
+  "HWP_GPMT":
+    desc: "Heating water pump total flow"
+    units: "GPM"
+    exclude: "plant-side pump total flow; belongs to the hot water plant, not the AHU"
+  "CHWC_DAT":
+    desc: "Cooling coil discharge air temperature"
+    units: "°F"
+    unit: AHU-1
+    tags: [cooling, coil, leaving, air, temp, sensor]
+  "CHWC_EAH":
+    desc: "Cooling coil entering air relative humidity"
+    units: "%RH"
+    unit: AHU-1
+    tags: [cooling, coil, entering, air, humidity, sensor]
+  "CHWC_EWT":
+    desc: "Cooling coil entering water temperature"
+    units: "°F"
+    unit: AHU-1
+    tags: [chilled-water, coil, entering, temp, sensor]
+  "CHWC_LWT":
+    desc: "Cooling coil leaving water temperature"
+    units: "°F"
+    unit: AHU-1
+    tags: [chilled-water, coil, leaving, temp, sensor]
+  "CHWC_MWT":
+    desc: "Cooling coil mixed water temperature"
+    units: "°F"
+    exclude: "simulation internal (mixed water temperature inside the coil circuit); not a field point"
+  "CHWC_VLV":
+    desc: "Cooling coil valve position"
+    units: "0-1"
+    unit: AHU-1
+    tags: [chilled-water, valve, sensor]
+  "CHWC_VLV_DM":
+    desc: "Cooling coil valve command"
+    units: "0-1"
+    unit: AHU-1
+    tags: [chilled-water, valve, cmd]
+  "CHWP_GPMC":
+    desc: "Chilled water pump flow through coil"
+    units: "GPM"
+    unit: AHU-1
+    tags: [chilled-water, coil, flow, sensor]
+  "CHWP_GPMT":
+    desc: "Chilled water pump total flow"
+    units: "GPM"
+    exclude: "plant-side pump total flow; belongs to the chilled water plant, not the AHU"

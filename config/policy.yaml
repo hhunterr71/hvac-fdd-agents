@@ -1,0 +1,22 @@
+# Policy gate: what an agent may do on its own. First matching rule wins; evaluated by
+# code (hvac_fdd_agents/dispatch/policy.py), never by a model. Everything is simulated:
+# nothing here writes to a real building system.
+
+rules:
+  - name: never touch life-safety equipment
+    when: {target_tags_any: [fire, smoke, freezeStat, lifeSafety]}
+    decision: block
+  - name: work orders requested in chat need a person
+    when: {action: request_work_order}
+    decision: needs_human
+  - name: work orders are reporting-only
+    when: {action: create_work_order}
+    decision: approve
+  - name: setpoint changes within bounds need a person
+    when: {action: change_setpoint, within_bounds: true}
+    decision: needs_human
+  - name: anything else that changes the building is blocked
+    when: {action: [change_setpoint, change_sequence, disable_alarm, override_point]}
+    decision: block
+
+default: block

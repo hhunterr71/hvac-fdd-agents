@@ -1,0 +1,19 @@
+# Secrets: the API key lives here and must never be committed
+.env
+.env.*
+
+# LBNL data is ~53 GB; re-create it with scripts/lbnl/fetch.py. Only the small sample is committed.
+data/*
+!data/sample/
+
+# Run outputs; the code re-creates them. The folder itself is kept.
+runs/*
+!runs/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/

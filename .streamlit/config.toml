@@ -1,0 +1,11 @@
+# Streamlit settings for the dashboard (read when Streamlit runs from the project root).
+
+[server]
+# Only this computer can open the dashboard. It has no login, so anyone who can reach it
+# can read the building data, chat on your API key, and approve Work Orders.
+# `hvac-fdd-agents dashboard --host 0.0.0.0` opens it to the network on purpose.
+address = "localhost"
+
+[browser]
+# Don't send usage statistics to Streamlit.
+gatherUsageStats = false

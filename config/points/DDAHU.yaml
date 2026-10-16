@@ -1,0 +1,351 @@
+# Reference Mapping for DDAHU: the answer key for the tagging agent.
+# Drafted by Claude from the LBNL point descriptions (data/lbnl/docs/, LBNL_FDD_Data_Sets_DDAHU.pdf Table 2);
+# spot-check before relying on it. Tags use flat Project Haystack style.
+# The tagging agent never sees this file; it works from raw names and data only.
+system: DDAHU
+timestamp: {column: "Datetime", format: "%m/%d/%Y %H:%M"}
+units:
+  AHU-1: {type: ahu-dualDuct}
+  VAV-W: {type: vav-dualDuct, ahuRef: AHU-1}
+  VAV-SB: {type: vav-dualDuct, ahuRef: AHU-1}
+  VAV-SA: {type: vav-dualDuct, ahuRef: AHU-1}
+  VAV-E: {type: vav-dualDuct, ahuRef: AHU-1}
+points:
+  "RM_TEMP_W":
+    unit: VAV-W
+    tags: [zone, air, temp, sensor]
+  "RMCLGSPT_W":
+    unit: VAV-W
+    tags: [zone, air, temp, cooling, sp]
+  "RMHTGSPT_W":
+    unit: VAV-W
+    tags: [zone, air, temp, heating, sp]
+  "VAV_DAT_W":
+    unit: VAV-W
+    tags: [discharge, air, temp, sensor]
+  "VAV_SP_C_W":
+    unit: VAV-W
+    tags: [coldDeck, air, pressure, sensor]
+  "VAV_SP_H_W":
+    unit: VAV-W
+    tags: [hotDeck, air, pressure, sensor]
+  "VAV_DMPR_C_W":
+    unit: VAV-W
+    tags: [coldDeck, damper, cmd]
+  "VAV_DMPR_H_W":
+    unit: VAV-W
+    tags: [hotDeck, damper, cmd]
+  "VAVCFM_C_DM_W":
+    unit: VAV-W
+    tags: [coldDeck, air, flow, sp]
+  "VAVCFM_H_DM_W":
+    unit: VAV-W
+    tags: [hotDeck, air, flow, sp]
+  "VAVCFM_C_W":
+    unit: VAV-W
+    tags: [coldDeck, air, flow, sensor]
+  "VAVCFM_H_W":
+    unit: VAV-W
+    tags: [hotDeck, air, flow, sensor]
+  "VAVCFM_T_W":
+    unit: VAV-W
+    tags: [discharge, air, flow, sensor]
+  "VAV_EAT_C_W":
+    unit: VAV-W
+    tags: [coldDeck, entering, air, temp, sensor]
+  "VAV_EAT_H_W":
+    unit: VAV-W
+    tags: [hotDeck, entering, air, temp, sensor]
+  "RM_TEMP_SB":
+    unit: VAV-SB
+    tags: [zone, air, temp, sensor]
+  "RMCLGSPT_SB":
+    unit: VAV-SB
+    tags: [zone, air, temp, cooling, sp]
+  "RMHTGSPT_SB":
+    unit: VAV-SB
+    tags: [zone, air, temp, heating, sp]
+  "VAV_DAT_SB":
+    unit: VAV-SB
+    tags: [discharge, air, temp, sensor]
+  "VAV_SP_C_SB":
+    unit: VAV-SB
+    tags: [coldDeck, air, pressure, sensor]
+  "VAV_SP_H_SB":
+    unit: VAV-SB
+    tags: [hotDeck, air, pressure, sensor]
+  "VAV_DMPR_C_SB":
+    unit: VAV-SB
+    tags: [coldDeck, damper, cmd]
+  "VAV_DMPR_H_SB":
+    unit: VAV-SB
+    tags: [hotDeck, damper, cmd]
+  "VAVCFM_C_DM_SB":
+    unit: VAV-SB
+    tags: [coldDeck, air, flow, sp]
+  "VAVCFM_H_DM_SB":
+    unit: VAV-SB
+    tags: [hotDeck, air, flow, sp]
+  "VAVCFM_C_SB":
+    unit: VAV-SB
+    tags: [coldDeck, air, flow, sensor]
+  "VAVCFM_H_SB":
+    unit: VAV-SB
+    tags: [hotDeck, air, flow, sensor]
+  "VAVCFM_T_SB":
+    unit: VAV-SB
+    tags: [discharge, air, flow, sensor]
+  "VAV_EAT_C_SB":
+    unit: VAV-SB
+    tags: [coldDeck, entering, air, temp, sensor]
+  "VAV_EAT_H_SB":
+    unit: VAV-SB
+    tags: [hotDeck, entering, air, temp, sensor]
+  "RM_TEMP_SA":
+    unit: VAV-SA
+    tags: [zone, air, temp, sensor]
+  "RMCLGSPT_SA":
+    unit: VAV-SA
+    tags: [zone, air, temp, cooling, sp]
+  "RMHTGSPT_SA":
+    unit: VAV-SA
+    tags: [zone, air, temp, heating, sp]
+  "VAV_DAT_SA":
+    unit: VAV-SA
+    tags: [discharge, air, temp, sensor]
+  "VAV_SP_C_SA":
+    unit: VAV-SA
+    tags: [coldDeck, air, pressure, sensor]
+  "VAV_SP_H_SA":
+    unit: VAV-SA
+    tags: [hotDeck, air, pressure, sensor]
+  "VAV_DMPR_C_SA":
+    unit: VAV-SA
+    tags: [coldDeck, damper, cmd]
+  "VAV_DMPR_H_SA":
+    unit: VAV-SA
+    tags: [hotDeck, damper, cmd]
+  "VAVCFM_C_DM_SA":
+    unit: VAV-SA
+    tags: [coldDeck, air, flow, sp]
+  "VAVCFM_H_DM_SA":
+    unit: VAV-SA
+    tags: [hotDeck, air, flow, sp]
+  "VAVCFM_C_SA":
+    unit: VAV-SA
+    tags: [coldDeck, air, flow, sensor]
+  "VAVCFM_H_SA":
+    unit: VAV-SA
+    tags: [hotDeck, air, flow, sensor]
+  "VAVCFM_T_SA":
+    unit: VAV-SA
+    tags: [discharge, air, flow, sensor]
+  "VAV_EAT_C_SA":
+    unit: VAV-SA
+    tags: [coldDeck, entering, air, temp, sensor]
+  "VAV_EAT_H_SA":
+    unit: VAV-SA
+    tags: [hotDeck, entering, air, temp, sensor]
+  "RM_TEMP_E":
+    unit: VAV-E
+    tags: [zone, air, temp, sensor]
+  "RMCLGSPT_E":
+    unit: VAV-E
+    tags: [zone, air, temp, cooling, sp]
+  "RMHTGSPT_E":
+    unit: VAV-E
+    tags: [zone, air, temp, heating, sp]
+  "VAV_DAT_E":
+    unit: VAV-E
+    tags: [discharge, air, temp, sensor]
+  "VAV_SP_C_E":
+    unit: VAV-E
+    tags: [coldDeck, air, pressure, sensor]
+  "VAV_SP_H_E":
+    unit: VAV-E
+    tags: [hotDeck, air, pressure, sensor]
+  "VAV_DMPR_C_E":
+    unit: VAV-E
+    tags: [coldDeck, damper, cmd]
+  "VAV_DMPR_H_E":
+    unit: VAV-E
+    tags: [hotDeck, damper, cmd]
+  "VAVCFM_C_DM_E":
+    unit: VAV-E
+    tags: [coldDeck, air, flow, sp]
+  "VAVCFM_H_DM_E":
+    unit: VAV-E
+    tags: [hotDeck, air, flow, sp]
+  "VAVCFM_C_E":
+    unit: VAV-E
+    tags: [coldDeck, air, flow, sensor]
+  "VAVCFM_H_E":
+    unit: VAV-E
+    tags: [hotDeck, air, flow, sensor]
+  "VAVCFM_T_E":
+    unit: VAV-E
+    tags: [discharge, air, flow, sensor]
+  "VAV_EAT_C_E":
+    unit: VAV-E
+    tags: [coldDeck, entering, air, temp, sensor]
+  "VAV_EAT_H_E":
+    unit: VAV-E
+    tags: [hotDeck, entering, air, temp, sensor]
+  "SYS_CTL":
+    unit: AHU-1
+    tags: [hvacMode, sensor]
+  "OA_CFM":
+    unit: AHU-1
+    tags: [outside, air, flow, sensor]
+  "OA_DMPR":
+    unit: AHU-1
+    tags: [outside, air, damper, sensor]
+  "OA_DMPR_DM":
+    unit: AHU-1
+    tags: [outside, air, damper, cmd]
+  "OA_HUMD":
+    unit: AHU-1
+    tags: [outside, air, humidity, sensor]
+  "OA_TEMP":
+    unit: AHU-1
+    tags: [outside, air, temp, sensor]
+  "MA_TEMP":
+    unit: AHU-1
+    tags: [mixed, air, temp, sensor]
+  "RA_CFM":
+    unit: AHU-1
+    tags: [return, air, flow, sensor]
+  "RA_DMPR":
+    unit: AHU-1
+    tags: [return, air, damper, sensor]
+  "RA_DMPR_DM":
+    unit: AHU-1
+    tags: [return, air, damper, cmd]
+  "RA_HUMD":
+    unit: AHU-1
+    tags: [return, air, humidity, sensor]
+  "RA_TEMP":
+    unit: AHU-1
+    tags: [return, air, temp, sensor]
+  "RF_DP":
+    unit: AHU-1
+    tags: [return, fan, delta, pressure, sensor]
+  "RF_SPD":
+    unit: AHU-1
+    tags: [return, fan, speed, sensor]
+  "RF_WAT":
+    unit: AHU-1
+    tags: [return, fan, elec, power, sensor]
+  "EA_DMPR":
+    unit: AHU-1
+    tags: [exhaust, air, damper, sensor]
+  "EA_DMPR_DM":
+    unit: AHU-1
+    tags: [exhaust, air, damper, cmd]
+  "HSA_SPSPT":
+    unit: AHU-1
+    tags: [hotDeck, air, pressure, sp]
+  "HSA_SP":
+    unit: AHU-1
+    tags: [hotDeck, air, pressure, sensor]
+  "HSA_HUMD":
+    unit: AHU-1
+    tags: [hotDeck, air, humidity, sensor]
+  "HSA_CFM":
+    unit: AHU-1
+    tags: [hotDeck, air, flow, sensor]
+  "HSA_TEMPSPT":
+    unit: AHU-1
+    tags: [hotDeck, air, temp, sp]
+  "HSA_TEMP":
+    unit: AHU-1
+    tags: [hotDeck, air, temp, sensor]
+  "HSF_CS":
+    unit: AHU-1
+    tags: [hotDeck, fan, run, sensor]
+  "HSF_DP":
+    unit: AHU-1
+    tags: [hotDeck, fan, delta, pressure, sensor]
+  "HSF_SPD":
+    unit: AHU-1
+    tags: [hotDeck, fan, speed, sensor]
+  "HSF_WAT":
+    unit: AHU-1
+    tags: [hotDeck, fan, elec, power, sensor]
+  "CSA_SPSPT":
+    unit: AHU-1
+    tags: [coldDeck, air, pressure, sp]
+  "CSA_SP":
+    unit: AHU-1
+    tags: [coldDeck, air, pressure, sensor]
+  "CSA_HUMD":
+    unit: AHU-1
+    tags: [coldDeck, air, humidity, sensor]
+  "CSA_CFM":
+    unit: AHU-1
+    tags: [coldDeck, air, flow, sensor]
+  "CSA_TEMPSPT":
+    unit: AHU-1
+    tags: [coldDeck, air, temp, sp]
+  "CSA_TEMP":
+    unit: AHU-1
+    tags: [coldDeck, air, temp, sensor]
+  "CSF_CS":
+    unit: AHU-1
+    tags: [coldDeck, fan, run, sensor]
+  "CSF_DP":
+    unit: AHU-1
+    tags: [coldDeck, fan, delta, pressure, sensor]
+  "CSF_SPD":
+    unit: AHU-1
+    tags: [coldDeck, fan, speed, sensor]
+  "CSF_WAT":
+    unit: AHU-1
+    tags: [coldDeck, fan, elec, power, sensor]
+  "HWC_DAT":
+    unit: AHU-1
+    tags: [heating, coil, leaving, air, temp, sensor]
+  "HWC_EWT":
+    unit: AHU-1
+    tags: [hot-water, coil, entering, temp, sensor]
+  "HWC_LWT":
+    unit: AHU-1
+    tags: [hot-water, coil, leaving, temp, sensor]
+  "HWC_MWT":
+    exclude: "simulation internal (mixed water temperature inside the coil circuit); not a field point"
+  "HWC_VLV":
+    unit: AHU-1
+    tags: [hot-water, valve, sensor]
+  "HWC_VLV_DM":
+    unit: AHU-1
+    tags: [hot-water, valve, cmd]
+  "HWP_GPMC":
+    unit: AHU-1
+    tags: [hot-water, coil, flow, sensor]
+  "HWP_GPMT":
+    exclude: "plant-side pump total flow; belongs to the hot water plant, not the AHU"
+  "CHWC_DAT":
+    unit: AHU-1
+    tags: [cooling, coil, leaving, air, temp, sensor]
+  "CHWC_EAH":
+    unit: AHU-1
+    tags: [cooling, coil, entering, air, humidity, sensor]
+  "CHWC_EWT":
+    unit: AHU-1
+    tags: [chilled-water, coil, entering, temp, sensor]
+  "CHWC_LWT":
+    unit: AHU-1
+    tags: [chilled-water, coil, leaving, temp, sensor]
+  "CHWC_MWT":
+    exclude: "simulation internal (mixed water temperature inside the coil circuit); not a field point"
+  "CHWC_VLV":
+    unit: AHU-1
+    tags: [chilled-water, valve, sensor]
+  "CHWC_VLV_DM":
+    unit: AHU-1
+    tags: [chilled-water, valve, cmd]
+  "CHWP_GPMC":
+    unit: AHU-1
+    tags: [chilled-water, coil, flow, sensor]
+  "CHWP_GPMT":
+    exclude: "plant-side pump total flow; belongs to the chilled water plant, not the AHU"

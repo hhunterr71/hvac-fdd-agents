@@ -1,0 +1,42 @@
+# Haystack tags -> open-fdd roles.
+#
+# For each open-fdd role, candidates are tried in order. A candidate matches the point on
+# the unit that is the unique most-specific match for its tags (all tags present, fewest
+# extras), the same rule the tagging scorer uses. `from: served_by` reads the point from
+# the unit that feeds this one (a VAV's AHU), which is how box rules see supply air and
+# outdoor conditions.
+#
+# Roles and their meaning come from open-fdd's cookbook (open_fdd/rules/cookbook_catalog.py).
+
+vav:
+  zone-air-temp:          [{tags: [zone, air, temp, sensor]}]
+  zone-airflow:           [{tags: [air, flow, sensor]}]
+  damper:                 [{tags: [damper, sensor]}, {tags: [damper, cmd]}]
+  reheat-valve:           [{tags: [reheat, valve, cmd]}, {tags: [reheat, valve, sensor]}]
+  vav-discharge-air-temp: [{tags: [discharge, air, temp, sensor]}]
+  # Primary air enters the box at the AHU's supply temperature.
+  vav-inlet-air-temp:     [{tags: [discharge, air, temp, sensor], from: served_by}]
+  ahu-discharge-air-temp: [{tags: [discharge, air, temp, sensor], from: served_by}]
+  outside-air-temp:       [{tags: [outside, air, temp, sensor], from: served_by}]
+  occupied:               [{tags: [occupied, sensor]}, {tags: [occupied, sensor], from: served_by}]
+  cooling-sp:             [{tags: [zone, air, temp, cooling, sp]}]
+  heating-sp:             [{tags: [zone, air, temp, heating, sp]}]
+
+ahu:
+  discharge-air-temp:         [{tags: [discharge, air, temp, sensor]}]
+  discharge-air-temp-sp:      [{tags: [discharge, air, temp, sp]}]
+  mixed-air-temp:             [{tags: [mixed, air, temp, sensor]}]
+  return-air-temp:            [{tags: [return, air, temp, sensor]}]
+  outside-air-temp:           [{tags: [outside, air, temp, sensor]}]
+  duct-static-pressure:       [{tags: [discharge, air, pressure, sensor]}]
+  duct-static-pressure-sp:    [{tags: [discharge, air, pressure, sp]}]
+  fan-cmd:                    [{tags: [discharge, fan, speed, cmd]}, {tags: [discharge, fan, speed, sensor]}]
+  fan-status:                 [{tags: [discharge, fan, run, sensor]}]
+  heating-valve:              [{tags: [hot-water, valve, cmd]}, {tags: [hot-water, valve, sensor]}]
+  cooling-valve:              [{tags: [chilled-water, valve, cmd]}, {tags: [chilled-water, valve, sensor]}]
+  outside-air-damper:         [{tags: [outside, air, damper, cmd]}, {tags: [outside, air, damper, sensor]}]
+  cooling-coil-leaving-temp:  [{tags: [cooling, coil, leaving, air, temp, sensor]}]
+  cooling-coil-entering-temp: [{tags: [mixed, air, temp, sensor]}]
+  heating-coil-leaving-temp:  [{tags: [heating, coil, leaving, air, temp, sensor]}]
+  heating-coil-entering-temp: [{tags: [mixed, air, temp, sensor]}]
+  occupied:                   [{tags: [occupied, sensor]}]

@@ -1,0 +1,79 @@
+# Reference Mapping for RTU_SIM: the answer key for the tagging agent.
+# Drafted by Claude from the LBNL point descriptions (data/lbnl/docs/, LBNL_FDD_Data_Sets_RTU.pdf Table S3);
+# spot-check before relying on it. Tags use flat Project Haystack style.
+# The tagging agent never sees this file; it works from raw names and data only.
+system: RTU_SIM
+timestamp: {column: "Datetime", format: "%Y-%m-%d %H:%M:%S"}
+units:
+  RTU-1: {type: rtu}
+points:
+  "RTU_COMP_WATT":
+    unit: RTU-1
+    tags: [compressor, elec, power, sensor]
+  "RTU_OA_FLOW":
+    unit: RTU-1
+    tags: [outside, air, flow, sensor]
+  "RTU_OA_HUM":
+    unit: RTU-1
+    tags: [outside, air, humidity, sensor]
+  "RTU_OA_TEMP":
+    unit: RTU-1
+    tags: [outside, air, temp, sensor]
+  "RTU_RA_FLOW":
+    unit: RTU-1
+    tags: [return, air, flow, sensor]
+  "RTU_RA_HUM":
+    unit: RTU-1
+    tags: [return, air, humidity, sensor]
+  "RTU_RA_TEMP":
+    unit: RTU-1
+    tags: [return, air, temp, sensor]
+  "RTU_REFG_COND_PRES":
+    unit: RTU-1
+    tags: [refrig, condenser, leaving, pressure, sensor]
+  "RTU_REFG_COND_TEMP":
+    unit: RTU-1
+    tags: [refrig, condenser, leaving, temp, sensor]
+  "RTU_REFG_DISC_PRES":
+    unit: RTU-1
+    tags: [refrig, discharge, pressure, sensor]
+  "RTU_REFG_DISC_TEMP":
+    unit: RTU-1
+    tags: [refrig, discharge, temp, sensor]
+  "RTU_REFG_SUCT_PRES":
+    unit: RTU-1
+    tags: [refrig, suction, pressure, sensor]
+  "RTU_REFG_SUCT_TEMP":
+    unit: RTU-1
+    tags: [refrig, suction, temp, sensor]
+  "RTU_SA_FAN_WATT":
+    unit: RTU-1
+    tags: [discharge, fan, elec, power, sensor]
+  "RTU_SA_FLOW":
+    unit: RTU-1
+    tags: [discharge, air, flow, sensor]
+  "RTU_SA_HUM":
+    unit: RTU-1
+    tags: [discharge, air, humidity, sensor]
+  "RTU_SA_TEMP":
+    unit: RTU-1
+    tags: [discharge, air, temp, sensor]
+  "RTU_SEN_CAPA":
+    exclude: "calculated simulation output (sensible cooling capacity); not measurable in the field"
+  "RTU_STG_STA":
+    unit: RTU-1
+    tags: [compressor, stage, sensor]
+  "RTU_TOT_CAPA":
+    exclude: "calculated simulation output (total cooling capacity); not measurable in the field"
+  "RTU_TOT_WATT":
+    unit: RTU-1
+    tags: [elec, power, sensor]
+  "ZA_HUM":
+    unit: RTU-1
+    tags: [zone, air, humidity, sensor]
+  "ZA_TEMP":
+    unit: RTU-1
+    tags: [zone, air, temp, sensor]
+  "ZA_TEMP_SPT":
+    unit: RTU-1
+    tags: [zone, air, temp, sp]

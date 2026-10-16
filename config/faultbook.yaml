@@ -1,0 +1,76 @@
+# The Fault Book. v1 = every applicable open-fdd cookbook rule at its default thresholds
+# (open-fdd implements the ASHRAE Guideline 36 AHU fault conditions plus VAV, plant, and
+# sensor rules). Overrides go inside {}: e.g. VAV-7: {fixed_flow_min_mean: 250}.
+# Turn a rule off with {enabled: false}. Changes are proposed by the Fault Book agent
+# and approved in the Review Queue.
+version: 1
+source: "open-fdd 4.4.9 cookbook defaults"
+equipment:
+  ahu:
+    SV-RANGE: {}  # Sensor out of hard range
+    SV-FLATLINE: {}  # Sensor flatline (stuck)
+    SV-SPIKE: {}  # Sensor rate-of-change spike
+    SV-STALE: {}  # Stale data (no fresh samples)
+    SV-RATE: {}  # Context-aware sensor rate of change
+    PID-HUNT-1: {}  # Suspected control-output hunting
+    FC1: {}  # Duct static below SP at full fan (GL36 A)
+    FC2: {}  # MAT below OAT/RAT envelope (GL36 B)
+    FC3: {}  # MAT above OAT/RAT envelope (GL36 C)
+    FC4: {}  # PID hunting (operating-state oscillation)
+    FC5: {}  # SAT cold when heating commanded (GL36 D)
+    FC6: {}  # Estimated OA fraction mismatch
+    FC7: {}  # SAT low with full heating (GL36 E)
+    FC8: {}  # SAT/MAT mismatch in economizer (GL36 F)
+    FC9: {}  # OAT too warm for free cooling (GL36 G)
+    FC10: {}  # OAT/MAT mismatch + mech cooling (GL36 H)
+    FC11: {}  # OAT/MAT mismatch economizer-only (GL36 I)
+    FC12: {}  # SAT above blend in cooling (GL36 J)
+    FC13: {}  # SAT above SP at full cooling (GL36 K)
+    FC14: {}  # CHW coil ΔT when inactive (GL36 L)
+    FC15: {}  # HW coil ΔT when inactive (GL36 M)
+    AHU-SATDEV: {}  # SAT deviation from setpoint
+    AHU-DUCTHI: {}  # Duct static pressure high
+    AHU-SIMUL: {}  # Heating and cooling simultaneous
+    OAT-METEO: {}  # BAS outdoor-air sensor vs Open-Meteo
+    ECON-1: {}  # Economizer stuck closed
+    ECON-2: {}  # Economizing when outdoor unfavorable
+    ECON-3: {}  # Mech cooling without integrated economizer
+    ECON-4: {}  # Low estimated OA fraction
+    ECON-5: {}  # Preheat over-conditioning
+    ECON-6: {}  # Economizing in freezing weather
+    ECON-7: {}  # Economizer OK but not economizing
+    MECH-OAT-1: {}  # Mechanical cooling below 60°F web OAT
+    FCU-SENSOR-NULL: {}  # Missing FCU zone sensor
+    FCU-HTG-COIL: {}  # FCU heating coil under-delivery
+    FCU-CLG-COIL: {}  # FCU cooling coil under-delivery
+    FCU-VALVE-PASS-HTG: {}  # FCU heating valve passing
+    FCU-VALVE-PASS-CLG: {}  # FCU cooling valve passing
+    FCU-DAMPER-POS: {}  # FCU damper command/position mismatch
+    FCU-CO2-DAMPER: {}  # FCU high CO2 with low outdoor-air command
+    FCU-DEADBAND: {}  # FCU heat/cool deadband collapse
+    FCU-MODE-CYCLE: {}  # FCU heating/cooling mode cycling
+    TRIM-1: {}  # Duct static trim advisory
+    SCHED-1: {}  # Unoccupied runtime
+    SCHED-247: {}  # Always-on fan or pump runtime
+    RESET-1: {}  # SAT reset not tracking outdoor air
+    CMD-1: {}  # Fan cmd/status mismatch
+    OA-1: {}  # Low OA fraction
+    DMP-1: {}  # OA damper leakage
+    VLV-1: {}  # Cooling valve leakage
+  vav:
+    SV-RANGE: {}  # Sensor out of hard range
+    SV-FLATLINE: {}  # Sensor flatline (stuck)
+    SV-SPIKE: {}  # Sensor rate-of-change spike
+    SV-STALE: {}  # Stale data (no fresh samples)
+    SV-RATE: {}  # Context-aware sensor rate of change
+    PID-HUNT-1: {}  # Suspected control-output hunting
+    VAV-1: {}  # Zone comfort band
+    VAV-2: {}  # Night setback miss
+    VAV-3: {}  # Excessive reheat during warm weather
+    VAV-4: {}  # Damper stuck at full open
+    VAV-5: {}  # Airflow sensor bias
+    VAV-6: {}  # Reheat when cooling available
+    VAV-REHEAT: {}  # Reheat valve stuck / no temp rise
+    VAV-AHU-LEAVE: {}  # VAV leave vs parent AHU SAT (fedBy)
+    VAV-7: {}  # Min airflow / fixed high flow
+    SCHED-247: {}  # Always-on fan or pump runtime

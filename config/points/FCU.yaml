@@ -1,0 +1,95 @@
+# Reference Mapping for FCU: the answer key for the tagging agent.
+# Drafted by Claude from the LBNL point descriptions (data/lbnl/docs/, LBNL_FDD_Data_Sets_FCU.pdf Table 1);
+# spot-check before relying on it. Tags use flat Project Haystack style.
+# The tagging agent never sees this file; it works from raw names and data only.
+system: FCU
+timestamp: {column: "Datetime", format: "%m/%d/%Y %H:%M"}
+units:
+  FCU-1: {type: fcu}
+points:
+  "FCU_CTRL":
+    unit: FCU-1
+    tags: [hvacMode, sensor]
+  "FAN_CTRL":
+    exclude: "constant configuration value (fan mode always 1, Auto)"
+  "RM_TEMP":
+    unit: FCU-1
+    tags: [zone, air, temp, sensor]
+  "RMCLGSPT":
+    unit: FCU-1
+    tags: [zone, air, temp, cooling, sp]
+  "RMHTGSPT":
+    unit: FCU-1
+    tags: [zone, air, temp, heating, sp]
+  "FCU_MAT":
+    unit: FCU-1
+    tags: [mixed, air, temp, sensor]
+  "FCU_DAT":
+    unit: FCU-1
+    tags: [discharge, air, temp, sensor]
+  "FCU_RAT":
+    unit: FCU-1
+    tags: [return, air, temp, sensor]
+  "FCU_CVLV":
+    unit: FCU-1
+    tags: [chilled-water, valve, sensor]
+  "FCU_CVLV_DM":
+    unit: FCU-1
+    tags: [chilled-water, valve, cmd]
+  "FCU_CLG_GPM":
+    unit: FCU-1
+    tags: [chilled-water, coil, flow, sensor]
+  "FCU_CLG_EWT":
+    unit: FCU-1
+    tags: [chilled-water, coil, entering, temp, sensor]
+  "FCU_CLG_RWT":
+    unit: FCU-1
+    tags: [chilled-water, coil, leaving, temp, sensor]
+  "FCU_HVLV":
+    unit: FCU-1
+    tags: [hot-water, valve, sensor]
+  "FCU_HVLV_DM":
+    unit: FCU-1
+    tags: [hot-water, valve, cmd]
+  "FCU_HTG_GPM":
+    unit: FCU-1
+    tags: [hot-water, coil, flow, sensor]
+  "FCU_HTG_EWT":
+    unit: FCU-1
+    tags: [hot-water, coil, entering, temp, sensor]
+  "FCU_HTG_RWT":
+    unit: FCU-1
+    tags: [hot-water, coil, leaving, temp, sensor]
+  "FCU_DA_CFM":
+    unit: FCU-1
+    tags: [discharge, air, flow, sensor]
+  "FCU_OA_CFM":
+    unit: FCU-1
+    tags: [outside, air, flow, sensor]
+  "FCU_DMPR":
+    unit: FCU-1
+    tags: [outside, air, damper, sensor]
+  "FCU_DMPR_DM":
+    unit: FCU-1
+    tags: [outside, air, damper, cmd]
+  "FCU_SPD":
+    unit: FCU-1
+    tags: [fan, speed, sensor]
+  "FCU_OAT":
+    unit: FCU-1
+    tags: [outside, air, temp, sensor]
+  "FCU_WAT":
+    unit: FCU-1
+    tags: [fan, elec, power, sensor]
+  "FCU_MA_HUMD":
+    unit: FCU-1
+    tags: [mixed, air, humidity, sensor]
+  "FCU_OA_HUMD":
+    unit: FCU-1
+    tags: [outside, air, humidity, sensor]
+  "FCU_DA_HUMD":
+    unit: FCU-1
+    tags: [discharge, air, humidity, sensor]
+  "FCU_RA_HUMD":
+    unit: FCU-1
+    tags: [return, air, humidity, sensor]

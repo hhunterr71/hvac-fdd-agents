@@ -1,0 +1,34 @@
+# Data Health: can the data be trusted? Checked per point by hvac_fdd_agents/data/health.py.
+# Real BMS trends lose data in recognizable ways: rows stop arriving (controller or network
+# down), cells go blank (one device offline), or a value freezes at its last reading (the
+# BMS keeps trending a point it can no longer read). The LBNL data is simulated and has
+# none of this except values that never change.
+
+# A point's status is the worst of its checks: ok < warning < bad.
+coverage:              # share of expected samples that have a value
+  warning_below: 0.98
+  bad_below: 0.90
+longest_gap_hours:     # longest run of missing values (blank cells or missing rows)
+  warning: 1
+  bad: 4
+flatline_hours:        # longest run of an unchanged value, on sensors that normally move
+  warning: 6
+  bad: 24
+# Which sensors "normally move": a real temperature or humidity reading always wobbles a
+# little, so a frozen one means the BMS has lost the device. Positions, speeds, flows, and
+# power legitimately sit at 0 or a minimum for hours (equipment off), so they aren't checked.
+flatline_tags: [[temp], [humidity]]
+out_of_range_share:    # share of values outside the plausible range for the point's kind
+  warning: 0.001       # meant for garbage readings (-9999, 1e30), not sensor noise
+  bad: 0.01
+
+# Plausible ranges by Haystack tags (first match wins). Wide on purpose, so they hold in
+# both °F and °C and for 0-1 or 0-100% scaling. A point matching none is not range-checked.
+ranges:
+  - {tags: [temp], min: -40, max: 250}
+  - {tags: [humidity], min: 0, max: 100}
+  - {tags: [damper], min: -0.5, max: 100.5}
+  - {tags: [valve], min: -0.5, max: 100.5}
+  - {tags: [flow], min: -5, max: 1000000}
+  - {tags: [pressure], min: -50, max: 10000}
+  - {tags: [power], min: -1, max: 1000000}

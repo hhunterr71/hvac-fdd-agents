@@ -1,0 +1,254 @@
+# Reference Mapping for CHILLER: the answer key for the tagging agent.
+# Drafted by Claude from the LBNL point descriptions (data/lbnl/docs/, LBNL_FDD_Data_Sets_Chiller_Plant.pdf Table 2);
+# spot-check before relying on it. Tags use flat Project Haystack style.
+# The tagging agent never sees this file; it works from raw names and data only.
+system: CHILLER
+timestamp: {column: "Datetime", format: "%Y-%m-%d %H:%M:%S"}
+units:
+  CHW-LOOP: {type: chilled-water-plant}
+  CW-LOOP: {type: condenser-water-plant}
+  CH-1: {type: chiller, plantRef: CHW-LOOP}
+  CH-2: {type: chiller, plantRef: CHW-LOOP}
+  CH-3: {type: chiller, plantRef: CHW-LOOP}
+  CT-1: {type: coolingTower, plantRef: CW-LOOP}
+  CT-2: {type: coolingTower, plantRef: CW-LOOP}
+  CT-3: {type: coolingTower, plantRef: CW-LOOP}
+  CWP-1: {type: pump, plantRef: CW-LOOP}
+  CWP-2: {type: pump, plantRef: CW-LOOP}
+  CWP-3: {type: pump, plantRef: CW-LOOP}
+  PCHWP-1: {type: pump, plantRef: CHW-LOOP}
+  PCHWP-2: {type: pump, plantRef: CHW-LOOP}
+  PCHWP-3: {type: pump, plantRef: CHW-LOOP}
+  SCHWP-1: {type: pump, plantRef: CHW-LOOP}
+  SCHWP-2: {type: pump, plantRef: CHW-LOOP}
+points:
+  "CDWL_CW_FLOW":
+    unit: CW-LOOP
+    tags: [condenser-water, flow, sensor]
+  "CDWL_PM_POW_1":
+    unit: CWP-1
+    tags: [pump, elec, power, sensor]
+  "CDWL_PM_POW_2":
+    unit: CWP-2
+    tags: [pump, elec, power, sensor]
+  "CDWL_PM_POW_3":
+    unit: CWP-3
+    tags: [pump, elec, power, sensor]
+  "CDWL_RW_TEMP":
+    unit: CW-LOOP
+    tags: [condenser-water, entering, temp, sensor]
+  "CDWL_SW_TEMP":
+    unit: CW-LOOP
+    tags: [condenser-water, leaving, temp, sensor]
+  "CHL_CD_FLOW_1":
+    unit: CH-1
+    tags: [condenser-water, flow, sensor]
+  "CHL_CD_FLOW_2":
+    unit: CH-2
+    tags: [condenser-water, flow, sensor]
+  "CHL_CD_FLOW_3":
+    unit: CH-3
+    tags: [condenser-water, flow, sensor]
+  "CHL_COMP_SPD_CTRL_1":
+    unit: CH-1
+    tags: [compressor, speed, cmd]
+  "CHL_COMP_SPD_CTRL_2":
+    unit: CH-2
+    tags: [compressor, speed, cmd]
+  "CHL_COMP_SPD_CTRL_3":
+    unit: CH-3
+    tags: [compressor, speed, cmd]
+  "CHL_CW_FLOW_1":
+    unit: CH-1
+    tags: [chilled-water, flow, sensor]
+  "CHL_CW_FLOW_2":
+    unit: CH-2
+    tags: [chilled-water, flow, sensor]
+  "CHL_CW_FLOW_3":
+    unit: CH-3
+    tags: [chilled-water, flow, sensor]
+  "CHL_POW_1":
+    unit: CH-1
+    tags: [elec, power, sensor]
+  "CHL_POW_2":
+    unit: CH-2
+    tags: [elec, power, sensor]
+  "CHL_POW_3":
+    unit: CH-3
+    tags: [elec, power, sensor]
+  "CHL_SWCD_TEMP_1":
+    unit: CH-1
+    tags: [condenser-water, leaving, temp, sensor]
+  "CHL_SWCD_TEMP_2":
+    unit: CH-2
+    tags: [condenser-water, leaving, temp, sensor]
+  "CHL_SWCD_TEMP_3":
+    unit: CH-3
+    tags: [condenser-water, leaving, temp, sensor]
+  "CHL_RW_TEMP_1":
+    unit: CH-1
+    tags: [chilled-water, entering, temp, sensor]
+  "CHL_RW_TEMP_2":
+    unit: CH-2
+    tags: [chilled-water, entering, temp, sensor]
+  "CHL_RW_TEMP_3":
+    unit: CH-3
+    tags: [chilled-water, entering, temp, sensor]
+  "CHL_STA_1":
+    unit: CH-1
+    tags: [run, sensor]
+  "CHL_STA_2":
+    unit: CH-2
+    tags: [run, sensor]
+  "CHL_STA_3":
+    unit: CH-3
+    tags: [run, sensor]
+  "CHL_RWCD_TEMP_1":
+    unit: CH-1
+    tags: [condenser-water, entering, temp, sensor]
+  "CHL_RWCD_TEMP_2":
+    unit: CH-2
+    tags: [condenser-water, entering, temp, sensor]
+  "CHL_RWCD_TEMP_3":
+    unit: CH-3
+    tags: [condenser-water, entering, temp, sensor]
+  "CHL_SW_TEMP_1":
+    unit: CH-1
+    tags: [chilled-water, leaving, temp, sensor]
+  "CHL_SW_TEMP_2":
+    unit: CH-2
+    tags: [chilled-water, leaving, temp, sensor]
+  "CHL_SW_TEMP_3":
+    unit: CH-3
+    tags: [chilled-water, leaving, temp, sensor]
+  "CT_FAN_SPD_1":
+    unit: CT-1
+    tags: [fan, speed, sensor]
+  "CT_FAN_SPD_2":
+    unit: CT-2
+    tags: [fan, speed, sensor]
+  "CT_FAN_SPD_3":
+    unit: CT-3
+    tags: [fan, speed, sensor]
+  "CT_FAN_SPD_CTRL_1":
+    unit: CT-1
+    tags: [fan, speed, cmd]
+  "CT_FAN_SPD_CTRL_2":
+    unit: CT-2
+    tags: [fan, speed, cmd]
+  "CT_FAN_SPD_CTRL_3":
+    unit: CT-3
+    tags: [fan, speed, cmd]
+  "CT_FLOW_1":
+    unit: CT-1
+    tags: [condenser-water, flow, sensor]
+  "CT_FLOW_2":
+    unit: CT-2
+    tags: [condenser-water, flow, sensor]
+  "CT_FLOW_3":
+    unit: CT-3
+    tags: [condenser-water, flow, sensor]
+  "CT_POW_1":
+    unit: CT-1
+    tags: [elec, power, sensor]
+  "CT_POW_2":
+    unit: CT-2
+    tags: [elec, power, sensor]
+  "CT_POW_3":
+    unit: CT-3
+    tags: [elec, power, sensor]
+  "CT_RW_TEMP_1":
+    unit: CT-1
+    tags: [condenser-water, entering, temp, sensor]
+  "CT_RW_TEMP_2":
+    unit: CT-2
+    tags: [condenser-water, entering, temp, sensor]
+  "CT_RW_TEMP_3":
+    unit: CT-3
+    tags: [condenser-water, entering, temp, sensor]
+  "CT_STA_1":
+    unit: CT-1
+    tags: [run, sensor]
+  "CT_STA_2":
+    unit: CT-2
+    tags: [run, sensor]
+  "CT_STA_3":
+    unit: CT-3
+    tags: [run, sensor]
+  "CT_SW_TEMPSPT":
+    unit: CW-LOOP
+    tags: [condenser-water, leaving, temp, sp]
+  "CT_SW_TEMP_1":
+    unit: CT-1
+    tags: [condenser-water, leaving, temp, sensor]
+  "CT_SW_TEMP_2":
+    unit: CT-2
+    tags: [condenser-water, leaving, temp, sensor]
+  "CT_SW_TEMP_3":
+    unit: CT-3
+    tags: [condenser-water, leaving, temp, sensor]
+  "CWL_PRI_CW_FLOW":
+    unit: CHW-LOOP
+    tags: [chilled-water, primaryLoop, flow, sensor]
+  "CWL_PRI_PM_POW_1":
+    unit: PCHWP-1
+    tags: [pump, elec, power, sensor]
+  "CWL_PRI_PM_POW_2":
+    unit: PCHWP-2
+    tags: [pump, elec, power, sensor]
+  "CWL_PRI_PM_POW_3":
+    unit: PCHWP-3
+    tags: [pump, elec, power, sensor]
+  "CWL_PRI_RW_TEMP":
+    unit: CHW-LOOP
+    tags: [chilled-water, primaryLoop, entering, temp, sensor]
+  "CWL_PRI_SW_TEMP":
+    unit: CHW-LOOP
+    tags: [chilled-water, primaryLoop, leaving, temp, sensor]
+  "CWL_PRI_SW_TEMPSPT":
+    unit: CHW-LOOP
+    tags: [chilled-water, primaryLoop, leaving, temp, sp]
+  "CWL_SEC_CW_FLOW":
+    unit: CHW-LOOP
+    tags: [chilled-water, secondaryLoop, flow, sensor]
+  "CWL_SEC_DP":
+    unit: CHW-LOOP
+    tags: [chilled-water, secondaryLoop, delta, pressure, sensor]
+  "CWL_SEC_DPSPT":
+    unit: CHW-LOOP
+    tags: [chilled-water, secondaryLoop, delta, pressure, sp]
+  "CWL_SEC_LOAD":
+    exclude: "calculated load (loop flow x supply/return temperature difference); not a measurement"
+  "CWL_SEC_PM_POW_1":
+    unit: SCHWP-1
+    tags: [pump, elec, power, sensor]
+  "CWL_SEC_PM_POW_2":
+    unit: SCHWP-2
+    tags: [pump, elec, power, sensor]
+  "CWL_SEC_PM_SPD_1":
+    unit: SCHWP-1
+    tags: [pump, speed, sensor]
+  "CWL_SEC_PM_SPD_2":
+    unit: SCHWP-2
+    tags: [pump, speed, sensor]
+  "CWL_SEC_PM_STA_1":
+    unit: SCHWP-1
+    tags: [pump, run, sensor]
+  "CWL_SEC_PM_STA_2":
+    unit: SCHWP-2
+    tags: [pump, run, sensor]
+  "CWL_SEC_RW_TEMP":
+    unit: CHW-LOOP
+    tags: [chilled-water, secondaryLoop, entering, temp, sensor]
+  "CWL_SEC_SW_TEMP":
+    unit: CHW-LOOP
+    tags: [chilled-water, secondaryLoop, leaving, temp, sensor]
+  "OA_TEMP":
+    unit: CHW-LOOP
+    tags: [outside, air, temp, sensor]
+  "OA_TEMP_WB":
+    unit: CHW-LOOP
+    tags: [outside, air, wetBulb, temp, sensor]
+  "TWV_CTRL":
+    unit: CW-LOOP
+    tags: [condenser-water, bypass, valve, cmd]

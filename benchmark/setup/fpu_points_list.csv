@@ -1,0 +1,62 @@
+point,desc,units
+RM_TEMP,Room temperature,°F
+RMCLGSPT,Room cooling setpoint,°F
+RMHTGSPT,Room heating setpoint,°F
+RH_VLV,Reheating coil valve position,0-1
+RH_VLV_DM,Reheating coil valve command,0-1
+RH_GPM,Reheating coil water flow rate,GPM
+RH_EWT,Reheating coil entering water temperature,°F
+RH_LWT,Reheating coil leaving water temperature,°F
+VAV_DAT,VAV discharge air temperature,°F
+VAV_DMPR,VAV damper position,0-1
+VAV_PM_CFM_SP,VAV primary air flow rate setpoint,CFM
+VAV_PM_CFM,VAV primary air flow rate,CFM
+VAV_DA_CFM,VAV discharge air flow rate,CFM
+VAV_FAN_CS,"VAV fan status (0 off, 1 on)",-
+VAV_FAN_DP,VAV fan differential pressure,in.w.g.
+VAV_FAN_WAT,VAV fan power,W
+SYS_CTL,"System mode (0 shutdown, 1 operate, 2 setback)",-
+OA_CFM,Outdoor air flow rate,CFM
+OA_DMPR,Outdoor air damper position,0-1
+OA_DMPR_DM,Outdoor air damper command,0-1
+OA_HUMD,Outdoor air humidity,%RH
+OA_TEMP,Outdoor air temperature,°F
+MA_TEMP,Mixed air temperature,°F
+RA_CFM,Recirculated air flow rate,CFM
+RA_DMPR,Recirculated air damper position,0-1
+RA_DMPR_DM,Recirculated air damper command,0-1
+RA_HUMD,Return air humidity,%RH
+RA_TEMP,Return air temperature,°F
+RF%SFSPD,Return fan % of supply fan speed,0-1
+RF_DP,Return fan differential pressure,in.w.g.
+RF_SPD,Return fan VFD speed,0-1
+RF_WAT,Return fan power,W
+EA_DMPR,Exhaust air damper position,0-1
+EA_DMPR_DM,Exhaust air damper command,0-1
+SA_SPSPT,Supply air duct static pressure setpoint,in.w.g.
+SA_SP,Supply air duct static pressure,in.w.g.
+SA_HUMD,Supply air humidity,%RH
+SA_CFM,Supply air flow rate,CFM
+SA_TEMPSPT,Supply air temperature setpoint,°F
+SA_TEMP,Supply air temperature,°F
+SF_CS,"Supply fan status (0 off, 1 on)",-
+SF_DP,Supply fan differential pressure,in.w.g.
+SF_SPD,Supply fan VFD speed,0-1
+SF_WAT,Supply fan power,W
+HWC_DAT,Heating coil discharge air temperature,°F
+HWC_EWT,Heating coil entering water temperature,°F
+HWC_LWT,Heating coil leaving water temperature,°F
+HWC_MWT,Heating coil mixed water temperature,°F
+HWC_VLV,Heating coil valve position,0-1
+HWC_VLV_DM,Heating coil valve command,0-1
+HWP_GPMC,Heating water pump flow through coil,GPM
+HWP_GPMT,Heating water pump total flow,GPM
+CHWC_DAT,Cooling coil discharge air temperature,°F
+CHWC_EAH,Cooling coil entering air relative humidity,%RH
+CHWC_EWT,Cooling coil entering water temperature,°F
+CHWC_LWT,Cooling coil leaving water temperature,°F
+CHWC_MWT,Cooling coil mixed water temperature,°F
+CHWC_VLV,Cooling coil valve position,0-1
+CHWC_VLV_DM,Cooling coil valve command,0-1
+CHWP_GPMC,Chilled water pump flow through coil,GPM
+CHWP_GPMT,Chilled water pump total flow,GPM

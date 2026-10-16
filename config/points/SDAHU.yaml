@@ -1,0 +1,104 @@
+# Reference Mapping for SDAHU: the answer key for the tagging agent.
+# Drafted by Claude from the LBNL point descriptions (data/lbnl/docs/, LBNL_FDD_Data_Sets_SDAHU.pdf Table 2);
+# spot-check before relying on it. Tags use flat Project Haystack style.
+# The tagging agent never sees this file; it works from raw names and data only.
+system: SDAHU
+timestamp: {column: "Datetime", format: "%Y-%m-%d %H:%M:%S"}
+units:
+  AHU-1: {type: ahu}
+  VAV-1: {type: vav, ahuRef: AHU-1}
+  VAV-2: {type: vav, ahuRef: AHU-1}
+  VAV-3: {type: vav, ahuRef: AHU-1}
+  VAV-4: {type: vav, ahuRef: AHU-1}
+  VAV-5: {type: vav, ahuRef: AHU-1}
+points:
+  "CHWC_VLV":
+    unit: AHU-1
+    tags: [chilled-water, valve, sensor]
+  "CHWC_VLV_DM":
+    unit: AHU-1
+    tags: [chilled-water, valve, cmd]
+  "MA_TEMP":
+    unit: AHU-1
+    tags: [mixed, air, temp, sensor]
+  "OA_CFM":
+    unit: AHU-1
+    tags: [outside, air, flow, sensor]
+  "OA_DMPR":
+    unit: AHU-1
+    tags: [outside, air, damper, sensor]
+  "OA_DMPR_DM":
+    unit: AHU-1
+    tags: [outside, air, damper, cmd]
+  "OA_TEMP":
+    unit: AHU-1
+    tags: [outside, air, temp, sensor]
+  "RA_CFM":
+    unit: AHU-1
+    tags: [return, air, flow, sensor]
+  "RA_DMPR":
+    unit: AHU-1
+    tags: [return, air, damper, sensor]
+  "RA_DMPR_DM":
+    unit: AHU-1
+    tags: [return, air, damper, cmd]
+  "RA_TEMP":
+    unit: AHU-1
+    tags: [return, air, temp, sensor]
+  "RF_CS":
+    unit: AHU-1
+    tags: [return, fan, speed, cmd]
+  "RF_SPD":
+    unit: AHU-1
+    tags: [return, fan, speed, sensor]
+  "RF_SPD_DM":
+    unit: AHU-1
+    tags: [return, fan, run, sensor]
+  "RF_WAT":
+    unit: AHU-1
+    tags: [return, fan, elec, power, sensor]
+  "SA_CFM":
+    unit: AHU-1
+    tags: [discharge, air, flow, sensor]
+  "SA_SP":
+    unit: AHU-1
+    tags: [discharge, air, pressure, sensor]
+  "SA_SPSPT":
+    unit: AHU-1
+    tags: [discharge, air, pressure, sp]
+  "SA_TEMP":
+    unit: AHU-1
+    tags: [discharge, air, temp, sensor]
+  "SA_TEMPSPT":
+    unit: AHU-1
+    tags: [discharge, air, temp, sp]
+  "SF_CS":
+    unit: AHU-1
+    tags: [discharge, fan, speed, cmd]
+  "SF_SPD":
+    unit: AHU-1
+    tags: [discharge, fan, speed, sensor]
+  "SF_SPD_DM":
+    unit: AHU-1
+    tags: [discharge, fan, run, sensor]
+  "SF_WAT":
+    unit: AHU-1
+    tags: [discharge, fan, elec, power, sensor]
+  "SYS_CTL":
+    unit: AHU-1
+    tags: [occupied, sensor]
+  "ZONE_TEMP_1":
+    unit: VAV-1
+    tags: [zone, air, temp, sensor]
+  "ZONE_TEMP_2":
+    unit: VAV-2
+    tags: [zone, air, temp, sensor]
+  "ZONE_TEMP_3":
+    unit: VAV-3
+    tags: [zone, air, temp, sensor]
+  "ZONE_TEMP_4":
+    unit: VAV-4
+    tags: [zone, air, temp, sensor]
+  "ZONE_TEMP_5":
+    unit: VAV-5
+    tags: [zone, air, temp, sensor]
